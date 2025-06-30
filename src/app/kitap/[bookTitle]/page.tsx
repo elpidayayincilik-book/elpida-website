@@ -9,10 +9,11 @@ import amazon from "@/assets/amazon.png";
 import ty from "@/assets/ty.png";
 // import commentBg from "@/assets/commentBg.png";
 import Comment from "@/components/Comment/Comment";
+
 export async function generateMetadata({
   params,
 }: TBookTitleProps): Promise<Metadata> {
-  const { bookTitle } = params;
+  const { bookTitle } = await params;
   //  const awaitedBookTitle = bookTitle;
   const decodedBookName = decodeURIComponent(bookTitle);
   return {
@@ -26,7 +27,7 @@ export async function generateMetadata({
 
 async function BookTitle({ params }: TBookTitleProps) {
   const icons = [ky, dr, amazon, ty];
-  const { bookTitle } = params;
+  const { bookTitle } = await params;
   const decodedBookTitle = decodeURIComponent(bookTitle.replaceAll("-", " "));
   const bookData = await getBookByTitle({ title: decodedBookTitle });
 
