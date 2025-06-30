@@ -1,6 +1,3 @@
-import { Dancing_Script } from "next/font/google";
-import BookAnim from "../Books/BookAnim";
-import Image from "next/image";
 import book from "@/assets/book.jpg";
 import { Playfair_Display } from "next/font/google";
 
@@ -10,6 +7,7 @@ const geist = Playfair_Display({
   adjustFontFallback: true,
   preload: true,
   display: "swap",
+  subsets: ["latin"],
 });
 
 function IntroParagraph() {

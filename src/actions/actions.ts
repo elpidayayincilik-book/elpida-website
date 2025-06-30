@@ -1,4 +1,4 @@
-import { IBook, IBookWithAuthor } from "@/types/types";
+import { IBookWithAuthor } from "@/types/types";
 import { supabase } from "../lib/supabase/server";
 export async function getBooks(): Promise<null | IBookWithAuthor[]> {
   const { data, error } = await supabase.from("books").select(

@@ -1,7 +1,6 @@
 import { IBook } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
-import NavigateButton from "../ui/NavigateButton";
 function Book(bookProps: IBook) {
   return (
     <Link

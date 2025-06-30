@@ -7,7 +7,7 @@ import ky from "@/assets/ky.png";
 import dr from "@/assets/dr.jpg";
 import amazon from "@/assets/amazon.png";
 import ty from "@/assets/ty.png";
-import commentBg from "@/assets/commentBg.png";
+// import commentBg from "@/assets/commentBg.png";
 import Comment from "@/components/Comment/Comment";
 export async function generateMetadata({
   params,

@@ -1,9 +1,6 @@
 import elpidaLogo from "@/assets/elpida-logo.jpeg";
 import Image from "next/image";
-import { Playfair_Display } from "next/font/google";
-const roboto = Playfair_Display({
-  weight: "400",
-});
+
 function Nav() {
   return (
     <div className="z-0 flex flex row justify-between items-center w-full h-full py-4 px-6 lg:px-8 py-3 ">

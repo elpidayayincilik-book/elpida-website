@@ -1,6 +1,6 @@
 import AboutUs from "@/components/AboutUs/AboutUs";
 import BooksList from "@/components/Books/BooksList";
-import IntroParagraph from "@/components/IntroParagraph/IntroParagraph";
+// import IntroParagraph from "@/components/IntroParagraph/IntroParagraph";
 import IntroWithInk from "@/components/IntroWithInk/IntroWithInk";
 import LastPublished from "@/components/LastPublished/LastPublished";
 import "./globals.css";
