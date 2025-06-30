@@ -41,6 +41,6 @@ export interface IBookWithAuthor {
 
 export type TBookTitleProps = {
   params: {
-    bookTitle: Promise<string>;
+    bookTitle: string;
   };
 };

@@ -1,7 +1,7 @@
 import { IBookWithAuthor } from "@/types/types";
 import { supabase } from "../lib/supabase/server";
 export async function getBooks(): Promise<null | IBookWithAuthor[]> {
-  const { data, error } = await supabase.from("books").select(
+  const { data } = (await supabase.from("books").select(
     `id,
     created_at,
     title,
@@ -17,10 +17,8 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
     category
     )
     `
-  );
-  if (error) {
-    return null;
-  }
+  )) as { data: IBookWithAuthor[] | null };
+
   if (data && data.length) {
     return data;
   } else return null;

@@ -12,11 +12,10 @@ import Comment from "@/components/Comment/Comment";
 export async function generateMetadata({
   params,
 }: TBookTitleProps): Promise<Metadata> {
-  await new Promise((res) => setTimeout(res, 1500)); // simulate delay
 
-  const { bookTitle } = await params;
-  const awaitedBookTitle = await bookTitle;
-  const decodedBookName = decodeURIComponent(awaitedBookTitle);
+  const { bookTitle } = params;
+  //  const awaitedBookTitle = bookTitle;
+  const decodedBookName = decodeURIComponent(bookTitle);
   return {
     title: {
       default: `${decodedBookName.replaceAll("-", " ")} | Detaylar`,
@@ -28,11 +27,8 @@ export async function generateMetadata({
 
 async function BookTitle({ params }: TBookTitleProps) {
   const icons = [ky, dr, amazon, ty];
-  const { bookTitle } = await params;
-  const awaitedBookTitle = await bookTitle;
-  const decodedBookTitle = decodeURIComponent(
-    awaitedBookTitle.replaceAll("-", " ")
-  );
+  const { bookTitle } = params;
+  const decodedBookTitle = decodeURIComponent(bookTitle.replaceAll("-", " "));
   const bookData = await getBookByTitle({ title: decodedBookTitle });
 
   return (
