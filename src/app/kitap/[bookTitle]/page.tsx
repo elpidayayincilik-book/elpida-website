@@ -1,5 +1,5 @@
 import { getBookByTitle } from "@/actions/actions";
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import type { TBookTitleProps } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,21 +9,20 @@ import amazon from "@/assets/amazon.png";
 import ty from "@/assets/ty.png";
 // import commentBg from "@/assets/commentBg.png";
 import Comment from "@/components/Comment/Comment";
-export async function generateMetadata({
-  params,
-}: TBookTitleProps): Promise<Metadata> {
-
-  const { bookTitle } = params;
-  //  const awaitedBookTitle = bookTitle;
-  const decodedBookName = decodeURIComponent(bookTitle);
-  return {
-    title: {
-      default: `${decodedBookName.replaceAll("-", " ")} | Detaylar`,
-      template: "div",
-    },
-    description: `Find out more about the book: ${bookTitle}`,
-  };
-}
+// export async function generateMetadata({
+//   params,
+// }: TBookTitleProps): Promise<Metadata> {
+//   const { bookTitle } = params;
+//   //  const awaitedBookTitle = bookTitle;
+//   const decodedBookName = decodeURIComponent(bookTitle);
+//   return {
+//     title: {
+//       default: `${decodedBookName.replaceAll("-", " ")} | Detaylar`,
+//       template: "div",
+//     },
+//     description: `Find out more about the book: ${bookTitle}`,
+//   };
+// }
 
 async function BookTitle({ params }: TBookTitleProps) {
   const icons = [ky, dr, amazon, ty];
