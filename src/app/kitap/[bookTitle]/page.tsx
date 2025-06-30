@@ -15,8 +15,8 @@ export async function generateMetadata({
   await new Promise((res) => setTimeout(res, 1500)); // simulate delay
 
   const { bookTitle } = await params;
-
-  const decodedBookName = decodeURIComponent(bookTitle);
+  const awaitedBookTitle = await bookTitle;
+  const decodedBookName = decodeURIComponent(awaitedBookTitle);
   return {
     title: {
       default: `${decodedBookName.replaceAll("-", " ")} | Detaylar`,
@@ -29,7 +29,10 @@ export async function generateMetadata({
 async function BookTitle({ params }: TBookTitleProps) {
   const icons = [ky, dr, amazon, ty];
   const { bookTitle } = await params;
-  const decodedBookTitle = decodeURIComponent(bookTitle.replaceAll("-", " "));
+  const awaitedBookTitle = await bookTitle;
+  const decodedBookTitle = decodeURIComponent(
+    awaitedBookTitle.replaceAll("-", " ")
+  );
   const bookData = await getBookByTitle({ title: decodedBookTitle });
 
   return (
