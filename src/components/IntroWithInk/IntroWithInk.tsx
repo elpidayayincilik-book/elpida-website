@@ -1,7 +1,5 @@
 import Image from "next/image";
-import ink from "@/assets/ink2.png";
 import bookBg from "@/assets/asd.png";
-import Link from "next/link";
 import logo from "@/assets/elpida-logo.jpeg";
 function IntroWithInk() {
   return (
