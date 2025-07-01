@@ -5,9 +5,9 @@ function Book(bookProps: IBook) {
   return (
     <Link
       href={`kitap/${bookProps.title} `}
-      className="transition-transform duration-300 hover:-translate-y-2"
+      className="transition-transform shadow-sm rounded-md duration-300 hover:-translate-y-2 bg-inherit"
     >
-      <div className=" group w-fit rounded-lg shadow-2xl flex flex-col justify-center min:w-[120] w-[150] md:w-[200] ">
+      <div className=" group w-fit rounded-lg  flex flex-col justify-center min:w-[120] w-[150] md:w-[200] ">
         <div className="flex relative w-[100%] justify-center ">
           <div className="relative h-[180] w-[100%] flex justify-center md:h-[260]  xl:h-[240]  min:h-[180] items-center  ">
             <Image
@@ -37,11 +37,11 @@ function Book(bookProps: IBook) {
           </div>
         </div>
 
-        <div className=" p-2 lg:p-1 flex flex-col text-center">
-          <h5 className="mb-2 text-[14px] md:text-lg font-bold tracking-tight text-gray-900 ">
-            {bookProps.title}
-          </h5>
-          <p className=" animate-wiggle mb-3 text-sm md:text:lg font-normal text-gray-900">
+        <div className="p-1 flex flex-col gap-1 text-center ">
+          <p className="text-[14px] md:text-md font-bold  text-gray-900 ">
+            {bookProps.title} 
+          </p>
+          <p className=" animate-wiggle  text-sm md:text:md font-normal text-gray-900">
             {bookProps.authors.fullname}
           </p>
         </div>

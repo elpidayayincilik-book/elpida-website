@@ -32,9 +32,14 @@ async function BookTitle({ params }: TBookTitleProps) {
   const bookData = await getBookByTitle({ title: decodedBookTitle });
 
   return (
-    <div>
-      <div className="flex justify-center  ">
-        <div className=" w-full">
+    <div
+      className="overflow-x-hidden"
+      style={{
+        overflow: "hidden",
+      }}
+    >
+      <div className="flex justify-center  overflow-hidden">
+        <div className=" w-full overflow-hidden ">
           <div className="flex  pl-6 justify-start text-sm  lg:px-8">
             <Link href={"/"} className=" font-semibold border-r-3 px-2 pl-0 ">
               Anasayfa
