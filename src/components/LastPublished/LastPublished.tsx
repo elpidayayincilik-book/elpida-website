@@ -48,7 +48,7 @@ async function LastPublished() {
                 <p className="text-2xl font-serif font-medium text-lg md:text-xl">
                   {data.detail}
                 </p>
-                <button className="md:w-fit  cursor-pointer bg-black text-white px-16 py-2 rounded-3xl hover:bg-gray-700 text-lg font-serif">
+                <button className="md:w-fit  cursor-pointer bg-black text-white px-16 py-2 rounded-3xl hover:bg-gray-800 text-lg font-serif">
                   <Link href={""} className="gap-2 flex justify-center items-center">
                     <p> İncele</p>
                     <svg

@@ -34,31 +34,53 @@ function IntroWithInk() {
     //     </div>
     //   </div>
     // </div>
-    <div className="w-full justify-center  ">
+    // second design
+
+    // <div className="w-full justify-center  ">
+    //   <div
+    //     className="bg-no-repeat bg-cover bg-center  w-full xl:h-[800] lg:h-[600]  h-[500] flex justify-center items-center "
+    //     style={{
+    //       backgroundImage: `url(${bookBg.src})`,
+    //       width: "100%",
+    //     }}
+    //   >
+    //     <div className=" md:px-8 px-4 py-3 white flex flex-col  ">
+    //       <div className="relative left-[0] sm:left-[16%] md:left-[18%] lg:left-[20%] xl:left-[25%] flex flex-col gap-3 md:gap-6 xl:gap-8  font-serif text-center">
+    //         <div className="relative flex text-white justify-center  items-center font-extrabold  text-3xl sm:text-5xl  lg:text-7xl ">
+    //           <Image alt="" src={logo} width={64} height={64} />
+    //           <p className="relative">lpida Yayıncılık</p>
+    //         </div>
+    //         <p className="text-white  font-400 text-xl  md:text-4xl lg:text-4xl xl:text-5xl ">
+    //           genç ve bağımsız bir yayınevi olarak
+    //         </p>
+    //         <div className="flex justify-center">
+    //           <p className="w-fit text-white  font-400 text-2xl  md:text-5xl lg:text-5xl ">
+    //             edebiyatın umudunu taşır.
+    //           </p>
+    //         </div>
+    //         <div className="flex justify-end "></div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+
+    // third
+    <div className="w-full border-1 ">
+      {" "}
       <div
-        className="bg-no-repeat bg-cover bg-center  w-full xl:h-[800] lg:h-[600]  h-[500] flex justify-center items-center "
+        className="bg-no-repeat bg-cover bg-center text-white relative flex font-serif justify-center  items-center font-extrabold  text-2xl sm:text-5xl  lg:text-7xl h-[100] md:h-[180] "
         style={{
           backgroundImage: `url(${bookBg.src})`,
           width: "100%",
         }}
       >
-        <div className=" md:px-8 px-4 py-3 white flex flex-col  ">
-          <div className="relative left-[0] sm:left-[16%] md:left-[18%] lg:left-[20%] xl:left-[25%] flex flex-col gap-3 md:gap-6 xl:gap-8  font-serif text-center">
-            <div className="relative flex text-white justify-center  items-center font-extrabold  text-3xl sm:text-5xl  lg:text-7xl ">
-              <Image alt="" src={logo} width={64} height={64} />
-              <p className="relative">lpida Yayıncılık</p>
-            </div>
-            <p className="text-white  font-400 text-xl  md:text-4xl lg:text-4xl xl:text-5xl ">
-              genç ve bağımsız bir yayınevi olarak
-            </p>
-            <div className="flex justify-center">
-              <p className="w-fit text-white  font-400 text-2xl  md:text-5xl lg:text-5xl ">
-                edebiyatın umudunu taşır.
-              </p>
-            </div>
-            <div className="flex justify-end "></div>
-          </div>
+        {/* <Image alt="" src={logo} width={64} height={64} />
+        <p className="relative  ">lpida Yayıncılık</p>{" "} */}
+        <div className=" w-[48] md:w-[64]  h-[48] md:h-[64] relative ">
+
+        <Image alt="" src={logo} fill sizes="100%"/>
         </div>
+        <p className="relative  ">debiyatın umudunu taşır</p>{" "}
       </div>
     </div>
   );

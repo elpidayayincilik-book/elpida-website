@@ -4,15 +4,15 @@ import { useState } from "react";
 function Menu() {
   const [open, setOpen] = useState(false);
   return (
-    <div className="relative w-full justify-center items-center block md:hidden ">
+    <div className="relative z-[99] w-full justify-center items-center block md:hidden ">
       <a onClick={() => setOpen((prev) => !prev)} className="cursor-pointer">
         {!open ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
-            width=" 30"
-            height="30"
+            width=" 16"
+            height="16"
             viewBox="0 0 50 50"
             className="fill-gray-700 hover:fill-gray-900  "
           >
@@ -23,8 +23,8 @@ function Menu() {
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
-            width=" 30"
-            height="30"
+            width=" 16"
+            height="16"
             viewBox="0 0 50 50"
             className="fill-gray-700 hover:fill-gray-900  "
           >

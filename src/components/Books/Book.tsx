@@ -5,7 +5,7 @@ function Book(bookProps: IBook) {
   return (
     <Link
       href={`kitap/${bookProps.title} `}
-      className="transition-transform shadow-sm rounded-md duration-300 hover:-translate-y-2 bg-inherit"
+      className="transition-transform shadow-sm rounded-md duration-300 hover:-translate-y-2 focus:-translate-y-2  active:-translate-y-2  bg-inherit  "
     >
       <div className=" group w-fit rounded-lg  flex flex-col justify-center min:w-[120] w-[150] md:w-[200] ">
         <div className="flex relative w-[100%] justify-center ">
@@ -17,7 +17,7 @@ function Book(bookProps: IBook) {
               fill
               sizes="100%"
             />
-            <div className="absolute top-[4] right-[4] transition-transform duration-300 opacity-[0] group-hover:opacity-[100]  w-fit  ">
+            {/* <div className="absolute top-[4] right-[4] transition-transform duration-300 opacity-[0] group-hover:opacity-[100]  w-fit group-focus:opacity-[100] group-active:opacity-[100]  ">
               <svg
                 width=" 32"
                 height="32"
@@ -33,13 +33,13 @@ function Book(bookProps: IBook) {
                   fill="currentcolor"
                 ></path>
               </svg>
-            </div>
+            </div> */}
           </div>
         </div>
 
         <div className="p-1 flex flex-col gap-1 text-center ">
           <p className="text-[14px] md:text-md font-bold  text-gray-900 ">
-            {bookProps.title} 
+            {bookProps.title}
           </p>
           <p className=" animate-wiggle  text-sm md:text:md font-normal text-gray-900">
             {bookProps.authors.fullname}

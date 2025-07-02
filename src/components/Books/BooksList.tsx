@@ -1,16 +1,16 @@
 import { getBooks } from "@/actions/actions";
 import Book from "./Book";
-import { filterButtons } from "./consts";
+// import { filterButtons } from "./consts";
 
 async function BooksList() {
   const books = await getBooks();
   return (
     <div className=" w-full justify-center ">
       <div className="flex flex-col justify-center items-center ">
-        <p className="w-[75vw] font-bold font-serif text-2xl py-6 text-center pt-12">
+        <p className="w-[75vw] font-bold font-serif text-2xl  pt-6 pb-0 text-center md:pt-12">
           KİTAPLAR
         </p>
-        <div className="flex w-full  p-4 justify-start md:justify-center">
+        {/* <div className="flex w-full  p-4 justify-start md:justify-center">
           <div className="flex flex-row  gap-6 lg:gap-12 overflow-auto scrollbar-hidden">
             {filterButtons.map((filterButton) => {
               return (
@@ -26,9 +26,9 @@ async function BooksList() {
               );
             })}
           </div>
-        </div>
-        <div className="xl:w-[1000] md:w-[850] bg-gradient-to-r from-slate-100 to-slate-200 rounded-xl sm:w-[600] w-full justify-center p-3 lg:p-8">
-          <div className=" grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 justify-center gap-6 md:gap-6 items-center p-2 md:p-6 place-items-center">
+        </div> */}
+        <div className="   xl:w-[1000] md:w-[850]  rounded-xl sm:w-[600] w-full justify-center p-2">
+          <div className="  grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 space-y-4 md:space-y-4  p-4 place-items-center">
             {!books && <p>loading</p>}
             {books?.length &&
               [

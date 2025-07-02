@@ -10,9 +10,9 @@ export default function Home() {
     <>
       <IntroWithInk />
       <div className="z-[16] flex flex-col justify-center items-center">
-        <LastPublished />
-        <AboutUs />
         <BooksList />
+        <AboutUs />
+        <LastPublished />
       </div>
     </>
   );
