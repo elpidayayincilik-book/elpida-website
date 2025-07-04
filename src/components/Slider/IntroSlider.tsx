@@ -22,7 +22,7 @@ function IntroSlider() {
   //   `;
 
   return (
-    <div className="p-32 pt-0">
+    <div className=" ">
       {/* <div className="p-16 prose prose-lg ">
         <ReactMarkdown>{markdown}</ReactMarkdown>
       </div> */}
@@ -35,8 +35,8 @@ function IntroSlider() {
         }}
         navigation={true}
         modules={[Pagination, Navigation, Mousewheel]}
-        className="w-screen xl:h-[500] md:h-[400] h-[200]  mySwiper"
-        style={{ paddingRight: "1rem", paddingLeft: "1rem" }}
+        className="w-[98vw] xl:h-[500] md:h-[400] h-[200]  mySwiper"
+        style={{}}
       >
         {Array.from([
           { id: 1, img: book1 },
@@ -45,7 +45,7 @@ function IntroSlider() {
           { id: 4, img: book4 },
         ]).map((item) => {
           return (
-            <SwiperSlide key={item.id} className="w-screen h-full swiperSlider">
+            <SwiperSlide key={item.id} className="w-[98vw] h-full swiperSlider">
               {/* <div
                 className=" w-screen h-[500] bg-center bg-cover bg-no-repeat bg-cover bg-center flex justify-center p-4 "
                 style={{
@@ -59,7 +59,7 @@ function IntroSlider() {
               {/* <div className="prose prose-lg">
                   <ReactMarkdown>{markdown}</ReactMarkdown>
                 </div> */}
-              <Image src={item.img} alt="" sizes="100%" fill priority={false}  />
+              <Image src={item.img} alt="" sizes="100%" fill priority={false} className="w-[99vw] " />
               {/* </div> */}
             </SwiperSlide>
           );

@@ -7,12 +7,16 @@ function IntroWithInk() {
     <div className="w-full flex justify-center bg-gray-200 border-b-8 ">
       <div className="p-4 xl:w-[80vw] lg:w-[90vw] w-full flex flex-row flex-wrap md:flex-nowrap justify-center items-center gap-4 md:gap-12 ">
         <div className="flex flex-col justify-center items-center">
-          <div className=" w-[48] md:w-[64]  h-[48] md:h-[64] relative ">
+          <div className=" w-[64] md:w-[76]  h-[64] md:h-[76] relative ">
             <Image alt="" src={logo} fill sizes="100%" />
           </div>
-          <div className="text-center">
-            <p>ELPİDA</p>
-            <p>YAYINCILIK</p>
+          <div className="  text-center font-serif justify-center items-center">
+            <div className=" w-[64] md:w-[76] justify-center ">
+              <p className="tracking-[1] md:tracking-[3] text-[17px] ">ELPİDA</p>
+              <p className=" tracking-[-2] md:tracking-[-1] leading-2 text-[15px]  ">
+                YAYINCILIK
+              </p>
+            </div>
           </div>
         </div>
         <div>
@@ -22,7 +26,7 @@ function IntroWithInk() {
               width: "100%",
             }}
           >
-            <p className="relative  text-black lg:text-xl text-normal md:min-w-[180] ">
+            <p className="relative  text-black md:text-2xl text-normal md:min-w-[200] font-serif">
               edebiyatın <br /> umudunu taşır
             </p>{" "}
           </div>
@@ -59,6 +63,14 @@ function IntroWithInk() {
               <p className="font-semibold text-xs">Ara</p>
             </button>
           </div>{" "}
+          <div className="border-1 bg-white rounded-2xl p-4 flex flex-col gap-3 max-h-[200] overflow-y-scroll overflow-x-hidden   ">
+            <p className="border-b-1 pb-2  ">Karam Karde</p>
+            <p className="border-b-1 pb-2  ">Karam Karde</p>
+            <p className="border-b-1 pb-2  ">Karam Karde</p>
+            <p className="border-b-1 pb-2  ">Karam Karde</p>
+            <p className="border-b-1 pb-2 "> Karam Karde</p>
+            <p className="border-b-1 pb-2 border-none ">Karam Karde</p>
+          </div>
         </div>
         {/* <div
         className="bg-no-repeat bg-cover bg-center text-white relative flex font-serif justify-center  items-center font-extrabold  text-2xl sm:text-5xl  lg:text-5xl h-[80] md:h-[100] "

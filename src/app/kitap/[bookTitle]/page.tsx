@@ -41,10 +41,10 @@ async function BookTitle({ params }: TBookTitleProps) {
     >
       <div className="flex justify-center  overflow-hidden">
         <div className=" w-full overflow-hidden ">
-          <div className="flex  pl-4 lg:pl-6  justify-start text-sm  lg:px-8">
-            <Link href={"/"} className=" font-semibold border-r-3 px-2 pl-0 ">
+          <div className="flex  pl-4 lg:pl-6 pt-6  justify-start text-sm  lg:px-8">
+            {/* <Link href={"/"} className=" font-semibold border-r-3 px-2 pl-0 ">
               Anasayfa
-            </Link>
+            </Link> */}
             <Link href={"/kitaplar"} className=" font-semibold border-r-3 px-2">
               Kitaplar
             </Link>

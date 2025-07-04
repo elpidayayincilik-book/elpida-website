@@ -41,8 +41,8 @@ function Menu() {
           }`}
         >
           <ul>
-            <Link href={"/"} >Anasayfa</Link >
-            <Link href={"/yayımlama-paketleri"} >Yayımlama Paketleri</Link >
+            <Link href={"/"} >Anasayfaaaaaaaaa</Link >
+            <Link href={"/yayimlama-paketleri"} >Yayımlama Paketleri</Link >
             <Link href={"/iletişim"} >İletişim</Link >
             
           </ul>
