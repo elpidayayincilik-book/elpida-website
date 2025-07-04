@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 function Menu() {
   const [open, setOpen] = useState(false);
@@ -40,9 +41,10 @@ function Menu() {
           }`}
         >
           <ul>
-            <li>Vizyon</li>
-            <li>İletişim</li>
-            <li>hello</li>
+            <Link href={"/"} >Anasayfa</Link >
+            <Link href={"/yayımlama-paketleri"} >Yayımlama Paketleri</Link >
+            <Link href={"/iletişim"} >İletişim</Link >
+            
           </ul>
         </div>
       )}

@@ -1,4 +1,4 @@
-import { IBookWithAuthor } from "@/types/types";
+import { IBookWithAuthor, ICommentSubmit } from "@/types/types";
 import { supabase } from "../lib/supabase/server";
 export async function getBooks(): Promise<null | IBookWithAuthor[]> {
   const { data } = (await supabase.from("books").select(
@@ -58,3 +58,24 @@ export async function getBookByTitle({
     return dataToReturn;
   }
 }
+
+export const submitComment = async (
+  commentBody: ICommentSubmit
+): Promise<boolean> => {
+  try {
+    const { bookId, comment, email } = commentBody;
+
+    if (!bookId) {
+      return false;
+    }
+    await supabase.from("comments").insert({
+      comment,
+      email,
+      bookId,
+    });
+    return true;
+  } catch (error) {
+    console.log("ERROR. ACTION. SUBMIT_COMMENT", error);
+    return false;
+  }
+};

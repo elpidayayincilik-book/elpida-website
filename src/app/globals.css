@@ -2,6 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwindcss typography;
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #ffffff;

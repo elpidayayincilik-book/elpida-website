@@ -42,3 +42,15 @@ export interface IBookWithAuthor {
 export type TBookTitleProps = {
   params: Promise<{ bookTitle: string }>;
 };
+
+export interface ICommentSubmit {
+  email: string;
+  comment: string;
+  bookId: number;
+}
+export interface ICommentGet {
+  id: number;
+  email: string;
+  comment: string;
+  isApproved: boolean;
+}

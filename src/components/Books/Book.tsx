@@ -41,7 +41,7 @@ function Book(bookProps: IBook) {
           <p className="text-[14px] md:text-md font-bold  text-gray-900 ">
             {bookProps.title}
           </p>
-          <p className=" animate-wiggle  text-sm md:text:md font-normal text-gray-900">
+          <p className=" animate-wiggle text-sm md:text:md font-normal text-gray-900">
             {bookProps.authors.fullname}
           </p>
         </div>

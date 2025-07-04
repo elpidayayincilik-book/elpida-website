@@ -1,6 +1,29 @@
 "use client";
+import { submitComment } from "@/actions/actions";
 import commentBg from "@/assets/commentBg.png";
-function Comment() {
+import { ICommentSubmit } from "@/types/types";
+import { useState } from "react";
+function Comment({ bookId }: { bookId: number }) {
+  const [comment, setComment] = useState<ICommentSubmit>({
+    bookId: bookId,
+    comment: "",
+    email: "",
+  });
+  const [commentRes, setCommentRes] = useState<null | boolean>(null);
+  const handleSubmit = async () => {
+    const data = await submitComment(comment);
+    if (!data) {
+      setCommentRes(false);
+    }
+    setCommentRes(true);
+    console.log("resDATA", data);
+
+    setComment({
+      comment: "",
+      email: "",
+      bookId,
+    });
+  };
   return (
     <div
       className="bg-no-repeat bg-cover bg-center  w-full xl:h-[600] lg:h-[600]  h-[600] flex justify-center items-center place-items-center p-1 md:p-12 "
@@ -23,6 +46,13 @@ function Comment() {
                   id="email"
                   className="block min-w-120 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                   placeholder="kullanıcı@mail"
+                  value={comment.email}
+                  onChange={(e) =>
+                    setComment((curr) => ({
+                      ...curr,
+                      email: e.target.value,
+                    }))
+                  }
                 />
               </div>
             </div>
@@ -39,14 +69,42 @@ function Comment() {
                   id="comment"
                   className="block min-w-120 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                   placeholder="kullanıcı@mail"
+                  onChange={(e) =>
+                    setComment((curr) => ({
+                      ...curr,
+                      comment: e.target.value,
+                    }))
+                  }
                 />
               </div>
             </div>
           </div>
         </div>
-        <button className="cursor-pointer bg-gray-900 hover:bg-black text-white px-5 py-2 w-fit rounded-3xl ">
+        <button
+          disabled={comment.comment === "" || comment.email === ""}
+          onClick={handleSubmit}
+          className="cursor-pointer bg-gray-900 hover:bg-black text-white px-5 py-2 w-fit rounded-3xl "
+        >
           GÖNDER
         </button>
+
+        {commentRes === true ? (
+          <div className="border-4 border-green-500  p-4 rounded-full">
+            <p className="text-green-700 text-center">
+              Yorumunuz İçin Teşekkür Ederiz. Yorumunuz inclemenin ardından
+              sitemizdeki yerini alacak
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
+        {commentRes === false ? (
+          <div className="border-1 border-red-500 text-red">
+            <p> Lütfen Tekrar Deneyin </p>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

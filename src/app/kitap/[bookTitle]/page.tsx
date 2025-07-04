@@ -30,6 +30,7 @@ async function BookTitle({ params }: TBookTitleProps) {
   const { bookTitle } = await params;
   const decodedBookTitle = decodeURIComponent(bookTitle.replaceAll("-", " "));
   const bookData = await getBookByTitle({ title: decodedBookTitle });
+  // const bookId = getIdByUrlSlug(bookTitle)
 
   return (
     <div
@@ -72,7 +73,9 @@ async function BookTitle({ params }: TBookTitleProps) {
                     {bookData.categories.category}
                   </p>
 
-                  <p className=" text-2xl md:text-4xl font-serif">{bookData.title}</p>
+                  <p className=" text-2xl md:text-4xl font-serif">
+                    {bookData.title}
+                  </p>
                   <p className="text-md font-serif pb-1 border-b-1">
                     <Link href={``}>{bookData.authors.fullname}</Link>
                   </p>
@@ -155,7 +158,7 @@ async function BookTitle({ params }: TBookTitleProps) {
           )}
         </div>
       </div>
-      <Comment />
+      <Comment bookId={1} />
     </div>
   );
 }
