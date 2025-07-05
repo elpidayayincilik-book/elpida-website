@@ -8,14 +8,11 @@ import IntroSlider from "@/components/Slider/IntroSlider";
 
 export default function Home() {
   return (
-    <>
-      {/* <IntroWithInk /> */}
-      <div className="z-[16] flex flex-col justify-center items-center">
-        <IntroSlider />
-        <AboutUs />
-        <BooksList />
-        <LastPublished />
-      </div>
-    </>
+    <div className="z-[16] flex flex-col justify-center items-center">
+      <IntroSlider />
+      <AboutUs />
+      <BooksList />
+      <LastPublished />
+    </div>
   );
 }

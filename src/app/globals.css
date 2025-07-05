@@ -50,6 +50,10 @@ body {
   font-style: normal;
 }
 
+button {
+  cursor: pointer;
+}
+
 @keyframes rotate {
  
   50% {
