@@ -1,43 +1,13 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
-type TPage =
-  | "/"
-  | "hakkinda"
-  | "kitap"
-  | "iletişim"
-  | "/yayimlama-paketlerimiz"
-  | "/iletişim";
+import { useState } from "react";
+import NavbarButtons from "./NavbarButtons";
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 function Menu() {
-  const path = usePathname() as TPage;
-
-  const pages = [
-    { page: "Anasayfa", href: "/" },
-    { page: "Yayımlama Paketlerimiz", href: "/yayimlama-paketlerimiz" },
-    { page: "İletişim", href: "/iletişim" },
-  ];
   const [open, setOpen] = useState(false);
-  const refMenu = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const handleOutSideClick = (event: MouseEvent) => {
-      if (
-        refMenu.current &&
-        event.target instanceof Node &&
-        !refMenu.current.contains(event.target)
-      ) {
-        setOpen(false);
-      }
-    };
+  const refMenu = useClickOutside<HTMLDivElement>(() => setOpen(false));
 
-    window.addEventListener("mousedown", handleOutSideClick);
-
-    return () => {
-      window.removeEventListener("mousedown", handleOutSideClick);
-    };
-  }, [refMenu]);
   return (
     <div className="justify-end items-center block md:hidden min-w-fit">
       <a onClick={() => setOpen(true)} className="cursor-pointer justify-end">
@@ -63,7 +33,6 @@ function Menu() {
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          {" "}
           <div className="justify-end">
             <button onClick={() => setOpen(false)}>
               <svg
@@ -79,22 +48,7 @@ function Menu() {
               </svg>
             </button>
           </div>
-          <div className="flex flex-col gap-1 w-full">
-            {pages.map((page) => {
-              return (
-                <Link
-                  //   onClick={() => setActivePage(page.href as TPage)}
-                  className={` ${
-                    page.href === path ? "font-bold underline" : ""
-                  }  w-full hover:underline  `}
-                  key={page.href}
-                  href={page.href}
-                >
-                  {page.page}{" "}
-                </Link>
-              );
-            })}
-          </div>
+          <NavbarButtons className="flex flex-col gap-1 w-full" />
         </div>
       )}
     </div>

@@ -54,3 +54,10 @@ export interface ICommentGet {
   comment: string;
   isApproved: boolean;
 }
+export type TPage =
+  | "/"
+  | "hakkinda"
+  | "kitap"
+  | "iletişim"
+  | "/yayimlama-paketlerimiz"
+  | "/iletişim";

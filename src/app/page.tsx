@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <div className="z-[16] flex flex-col justify-center items-center">
       <IntroSlider />
-      <AboutUs />
       <BooksList />
+      <AboutUs />
       <LastPublished />
     </div>
   );

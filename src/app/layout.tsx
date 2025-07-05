@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light ">
       <body
-        className={` antialiased w-full h-full bg-white dark:bg-black overflow-x-hidden `}
+        className={`  antialiased w-full h-full bg-white dark:bg-black overflow-x-hidden `}
       >
         <Nav />
         {children}

@@ -1,28 +1,15 @@
 "use client";
+import { useClickOutside } from "@/hooks/useClickOutside";
 import { IBookWithAuthor } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { ChangeEvent } from "react";
 
 function ClientSearch({ books }: { books: IBookWithAuthor[] }) {
   const [searchedBooks, setSearchedBooks] = useState<IBookWithAuthor[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleOutSideClick = (event: MouseEvent) => {
-      if (ref.current && event.target instanceof Node && !ref.current.contains(event.target)) {
-        setSearchTerm("");
-      }
-    };
-
-    window.addEventListener("mousedown", handleOutSideClick);
-
-    return () => {
-      window.removeEventListener("mousedown", handleOutSideClick);
-    };
-  }, [ref]);
+  const ref = useClickOutside<HTMLDivElement>(() => setSearchTerm(""));
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);

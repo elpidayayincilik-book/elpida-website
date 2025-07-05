@@ -10,11 +10,18 @@ import book4 from "@/assets/book4.png";
 
 import { Pagination, Navigation, Mousewheel } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useState, useEffect } from "react";
 
 // import ReactMarkdown from "react-markdown";
 // import Markdown from "react-markdown";
 
 function IntroSlider() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   //   const markdown = `
   // # Hi, *Pluto*!.
   // ## This is a Heading
@@ -26,27 +33,31 @@ function IntroSlider() {
       {/* <div className="p-16 prose prose-lg ">
         <ReactMarkdown>{markdown}</ReactMarkdown>
       </div> */}
-      <Swiper
-        mousewheel={true}
-        slidesPerView={1}
-        spaceBetween={24}
-        pagination={{
-          type: "bullets",
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation, Mousewheel]}
-        className="w-[98vw] xl:h-[500] md:h-[400] h-[200]  mySwiper"
-        style={{}}
-      >
-        {Array.from([
-          { id: 1, img: book1 },
-          { id: 2, img: book2 },
-          { id: 3, img: book3 },
-          { id: 4, img: book4 },
-        ]).map((item) => {
-          return (
-            <SwiperSlide key={item.id} className="w-[98vw] h-full swiperSlider">
-              {/* <div
+      {mounted ? (
+        <Swiper
+          mousewheel={true}
+          slidesPerView={1}
+          spaceBetween={24}
+          pagination={{
+            type: "bullets",
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation, Mousewheel]}
+          className="w-[98vw] xl:h-[500] md:h-[400] h-[200]  mySwiper"
+          style={{}}
+        >
+          {Array.from([
+            { id: 1, img: book1 },
+            { id: 2, img: book2 },
+            { id: 3, img: book3 },
+            { id: 4, img: book4 },
+          ]).map((item) => {
+            return (
+              <SwiperSlide
+                key={item.id}
+                className="w-[98vw] h-full swiperSlider"
+              >
+                {/* <div
                 className=" w-screen h-[500] bg-center bg-cover bg-no-repeat bg-cover bg-center flex justify-center p-4 "
                 style={{
                   backgroundImage: ` url(${item.img.src})`,
@@ -56,15 +67,25 @@ function IntroSlider() {
                   backgroundRepeat: "no-repeat",
                 }}
               > */}
-              {/* <div className="prose prose-lg">
+                {/* <div className="prose prose-lg">
                   <ReactMarkdown>{markdown}</ReactMarkdown>
                 </div> */}
-              <Image src={item.img} alt="" sizes="100%" fill priority={false} className="w-[99vw] " />
-              {/* </div> */}
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+                <Image
+                  src={item.img}
+                  alt=""
+                  sizes="100%"
+                  fill
+                  priority={false}
+                  className="w-[99vw]"
+                />
+                {/* </div> */}
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      ) : (
+        <div className="w-[60] h-[60] animate-spin"></div>
+      )}
     </div>
   );
 }

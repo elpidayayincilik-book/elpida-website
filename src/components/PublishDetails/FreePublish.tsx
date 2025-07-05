@@ -5,7 +5,12 @@ function FreePublish() {
     <div className="flex md:flex-row flex-col lg:gap-6 gap-4 justify-center  ">
       <div className="flex   md:justify-start md:items-start  justify-center items-center  relative w-full min-w-[300] max-h-[360]">
         <div className="flex md:justify-start md:items-start  justify-center items-center">
-          <Image alt="" src={ink} width={240} height={360} />
+          <Image
+            alt=""
+            src={ink}
+            width={240}
+            height={360}
+          />
         </div>
       </div>
       <div className="flex flex-col gap-3">
