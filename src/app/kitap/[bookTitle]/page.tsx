@@ -3,12 +3,9 @@ import type { Metadata } from "next";
 import type { TBookTitleProps } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
-import ky from "@/assets/ky.png";
-import dr from "@/assets/dr.jpg";
-import amazon from "@/assets/amazon.png";
-import ty from "@/assets/ty.png";
-// import commentBg from "@/assets/commentBg.png";
+
 import Comment from "@/components/Comment/Comment";
+import PurchaseLinks from "@/components/Purchase/PurchaseLinks";
 
 export async function generateMetadata({
   params,
@@ -26,7 +23,6 @@ export async function generateMetadata({
 }
 
 async function BookTitle({ params }: TBookTitleProps) {
-  const icons = [ky, dr, amazon, ty];
   const { bookTitle } = await params;
   const decodedBookTitle = decodeURIComponent(bookTitle.replaceAll("-", " "));
   const bookData = await getBookByTitle({ title: decodedBookTitle });
@@ -42,9 +38,6 @@ async function BookTitle({ params }: TBookTitleProps) {
       <div className="flex justify-center  overflow-hidden">
         <div className=" w-full overflow-hidden ">
           <div className="flex  pl-4 lg:pl-6 pt-6  justify-start text-sm  lg:px-8">
-            {/* <Link href={"/"} className=" font-semibold border-r-3 px-2 pl-0 ">
-              Anasayfa
-            </Link> */}
             <Link href={"/kitaplar"} className=" font-semibold border-r-3 px-2">
               Kitaplar
             </Link>
@@ -86,39 +79,16 @@ async function BookTitle({ params }: TBookTitleProps) {
                 <p className="text-md font-serif">{bookData.detail}</p>
                 <div>
                   <p className="font-bold pb-2 text-xl border-b-1 ">Satın Al</p>
-                  <div className=" flex-wrap xl:flex-nowrap rounded-3xl  py-3 flex flex-row gap-2 ">
-                    {icons.map((icon, idx) => {
-                      return (
-                        <div
-                          key={idx}
-                          className="group flex flex-row  relative border flex  justify-center rounded-3xl px-4 py-3 cursor-pointer"
-                        >
-                          <div className="relative w-[24] h-[24] bg-red-50 flex  justify-center rounded-3xl px-4 py-2 ">
-                            <Image alt="" src={icon} fill sizes="100%" />
-                          </div>
-                          <div className="relative  flex items-center justify-center  group-hover:translate-y-0  group-hover:block group-focus:translate-y-0 group-focus:block  group-active:translate-y-0 group-active:block transition-all duration-500 ease-in-out translate-y-5 ">
-                            <svg
-                              className="group hidden group-hover:flex  group-active:block group-focus:block pl-2 pb-0"
-                              width=" 24"
-                              height="24"
-                              viewBox="0 0 16 16"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              focusable="false"
-                              aria-hidden="true"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M7.529 2.862c.26-.26.682-.26.942 0l4.667 4.667c.26.26.26.682 0 .942l-4.667 4.667a.667.667 0 1 1-.942-.943l3.528-3.528H3.333a.667.667 0 0 1 0-1.334h7.724L7.53 3.805a.667.667 0 0 1 0-.943"
-                                fill="currentColor"
-                              ></path>
-                            </svg>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                  <PurchaseLinks
+                    className="flex-wrap xl:flex-nowrap rounded-3xl  py-3 flex flex-row gap-2 "
+                    links={{
+                      amazon: "",
+                      dr: "",
+                      kitapyurdu: "",
+                      trendyol: "",
+                    }}
+                    iconSize={24}
+                  />
                 </div>
                 <ul>
                   <p className="font-bold font-md pb-2">Künye:</p>

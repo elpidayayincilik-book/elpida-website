@@ -1,13 +1,14 @@
 import { IBook } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
+import PurchaseLinks from "../Purchase/PurchaseLinks";
 function Book(bookProps: IBook) {
   return (
     <Link
       href={`kitap/${bookProps.title} `}
       className="transition-transform shadow-sm rounded-md duration-300 hover:-translate-y-2 focus:-translate-y-2  active:-translate-y-2  bg-inherit  "
     >
-      <div className=" group w-fit rounded-lg  flex flex-col justify-center min:w-[120] w-[150] md:w-[200] ">
+      <div className=" w-fit rounded-lg  flex flex-col justify-center min:w-[120] w-[150] md:w-[200] ">
         <div className="flex relative w-[100%] justify-center ">
           <div className="relative h-[180] w-[100%] flex justify-center md:h-[260]  xl:h-[240]  min:h-[180] items-center  ">
             <Image
@@ -44,6 +45,16 @@ function Book(bookProps: IBook) {
           <p className=" animate-wiggle text-sm md:text:md font-normal text-gray-900">
             {bookProps.authors.fullname}
           </p>
+          <PurchaseLinks
+            className="flex flex-row gap-2 justify-center"
+            links={{
+              amazon: "",
+              dr: "",
+              kitapyurdu: "",
+              trendyol: "",
+            }}
+            iconSize={24}
+          />
         </div>
       </div>
     </Link>

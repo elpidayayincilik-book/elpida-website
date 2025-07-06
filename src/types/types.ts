@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface IAuthor {
   id: number;
   created_at: Date;
@@ -61,3 +63,20 @@ export type TPage =
   | "iletişim"
   | "/yayimlama-paketlerimiz"
   | "/iletişim";
+
+export type ILink = "kitapyurdu" | "amazon" | "trendyol" | "dr";
+
+export type ILinks = {
+  [platform in ILink]: string;
+};
+
+export interface IPurchaseItem {
+  title: ILink;
+  image: StaticImageData;
+}
+
+export interface IPurchaseLinks extends IPurchaseItem {
+  title: ILink;
+  image: StaticImageData;
+  link: string;
+}

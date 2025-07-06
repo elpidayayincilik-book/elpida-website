@@ -43,8 +43,7 @@ function IntroSlider() {
           }}
           navigation={true}
           modules={[Pagination, Navigation, Mousewheel]}
-          className="w-[98vw] xl:h-[500] md:h-[400] h-[200]  mySwiper"
-          style={{}}
+          className="w-screen xl:h-[600] md:h-[400] h-[200] "
         >
           {Array.from([
             { id: 1, img: book1 },
@@ -55,7 +54,7 @@ function IntroSlider() {
             return (
               <SwiperSlide
                 key={item.id}
-                className="w-[98vw] h-full swiperSlider"
+                className="w-full h-auto swiperSlider"
               >
                 {/* <div
                 className=" w-screen h-[500] bg-center bg-cover bg-no-repeat bg-cover bg-center flex justify-center p-4 "
@@ -76,7 +75,7 @@ function IntroSlider() {
                   sizes="100%"
                   fill
                   priority={false}
-                  className="w-[99vw]"
+                  className="w-full"
                 />
                 {/* </div> */}
               </SwiperSlide>
