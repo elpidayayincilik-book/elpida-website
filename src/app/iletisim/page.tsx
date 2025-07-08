@@ -10,7 +10,7 @@ function Contact() {
     name: "",
     phone_number: "",
   });
-  const [contactRes, setContactRes] = useState<null | boolean>(false);
+  const [contactRes, setContactRes] = useState<null | boolean>(null);
   const handleSubmit = async () => {
     const data = await submitContactMessage(contactBody);
     console.log("data client", data);

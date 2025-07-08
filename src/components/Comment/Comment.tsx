@@ -10,7 +10,7 @@ function Comment({ bookId }: { bookId: number }) {
     comment: "",
     email: "",
   });
-  const [commentRes, setCommentRes] = useState<null | boolean>(false);
+  const [commentRes, setCommentRes] = useState<null | boolean>(null);
   const handleSubmit = async () => {
     const data = await submitComment(comment);
     if (!data) {
