@@ -15,10 +15,10 @@ async function IntroWithInk() {
             </div>
             <div className="  text-center font-serif justify-center items-center">
               <div className=" w-[64] md:w-[76] justify-center ">
-                <p className="tracking-[1] md:tracking-[3] text-[17px] ">
+                <p className=" z-[400] relative tracking-[1] md:tracking-[3] text-[17px] ">
                   ELPİDA
                 </p>
-                <p className=" tracking-[-2] md:tracking-[-1] leading-2 text-[15px]  ">
+                <p className="  z-[400] relative tracking-[-2] md:tracking-[-1] leading-2 text-[15px]  ">
                   YAYINCILIK
                 </p>
               </div>
