@@ -3,13 +3,14 @@ import { submitComment } from "@/actions/actions";
 import commentBg from "@/assets/commentBg.png";
 import { ICommentSubmit } from "@/types/types";
 import { useState } from "react";
+import Alert from "../alert/Alert";
 function Comment({ bookId }: { bookId: number }) {
   const [comment, setComment] = useState<ICommentSubmit>({
     bookId: bookId,
     comment: "",
     email: "",
   });
-  const [commentRes, setCommentRes] = useState<null | boolean>(null);
+  const [commentRes, setCommentRes] = useState<null | boolean>(false);
   const handleSubmit = async () => {
     const data = await submitComment(comment);
     if (!data) {
@@ -90,19 +91,16 @@ function Comment({ bookId }: { bookId: number }) {
         </button>
 
         {commentRes === true ? (
-          <div className="border-4 border-green-500  p-4 rounded-full">
-            <p className="text-green-700 text-center">
-              Yorumunuz İçin Teşekkür Ederiz. Yorumunuz inclemenin ardından
-              sitemizdeki yerini alacak
-            </p>
-          </div>
+          <Alert
+            message="Yorumunuz için teşekkür ederiz. Yorumunuz inclemenin ardından
+              sitemizdeki yerini alacak."
+            positive
+          />
         ) : (
           ""
         )}
         {commentRes === false ? (
-          <div className="border-1 border-red-500 text-red">
-            <p> Lütfen Tekrar Deneyin </p>
-          </div>
+          <Alert message="Lütfen tekrar deneyin." positive={false} />
         ) : (
           ""
         )}

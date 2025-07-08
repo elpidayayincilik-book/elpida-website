@@ -1,5 +1,6 @@
 "use client";
 import { submitContactMessage } from "@/actions/actions";
+import Alert from "@/components/alert/Alert";
 import { IContact } from "@/types/types";
 import { useState } from "react";
 function Contact() {
@@ -9,7 +10,7 @@ function Contact() {
     name: "",
     phone_number: "",
   });
-  const [contactRes, setContactRes] = useState<null | boolean>(null);
+  const [contactRes, setContactRes] = useState<null | boolean>(false);
   const handleSubmit = async () => {
     const data = await submitContactMessage(contactBody);
     console.log("data client", data);
@@ -152,29 +153,16 @@ function Contact() {
             className=" bg-gray-900 hover:bg-black text-white px-5 py-2 w-fit rounded-3xl "
             type="submit"
           >
-            GÖNDERrr
-          </button>
-          <button
-            onClick={() => alert("hey")}
-            className=" bg-gray-900 hover:bg-black text-white px-5 py-2 w-fit rounded-3xl "
-          >
-            hey
+            GÖNDER
           </button>
 
           {contactRes === true ? (
-            <div className="border-4 border-green-500  p-4 rounded-full text-center">
-              <p className="text-green-700 text-center">
-                Yorumunuz İçin Teşekkür Ederiz. Yorumunuz inclemenin ardından
-                sitemizdeki yerini alacak
-              </p>
-            </div>
+            <Alert message="Mesajınız ulaştı. Teşekkür ederiz." positive />
           ) : (
             ""
           )}
           {contactRes === false ? (
-            <div className="border-1 border-red-500 text-red-500 p-4 rounded-full text-center">
-              <p>Lütfen Tekrar Deneyin </p>
-            </div>
+            <Alert message="Lütfen tekrar deneyin." positive={false} />
           ) : (
             ""
           )}
