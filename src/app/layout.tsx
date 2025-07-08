@@ -22,9 +22,6 @@ import ink from "@/assets/inkwhite.png";
 export const metadata: Metadata = {
   title: "Elpida Yayıncılık",
   description: "ELpida Yayınclık Websitesi",
-  icons: {
-    icon: "elpida-logo.png",
-  },
 };
 
 export default function RootLayout({
