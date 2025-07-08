@@ -32,7 +32,7 @@ async function IntroWithInk() {
               width: "100%",
             }}
           >
-            <p className="relative  text-black md:text-2xl text-normal md:min-w-[200] font-serif">
+            <p className="relative  text-black md:text-2xl text-normal md:min-w-[200] font-serif  ">
               edebiyatın <br /> umudunu taşır
             </p>{" "}
           </div>

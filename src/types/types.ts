@@ -80,3 +80,15 @@ export interface IPurchaseLinks extends IPurchaseItem {
   image: StaticImageData;
   link: string;
 }
+export interface ISlider {
+  id: number;
+  image_url: string;
+  image_desc: string;
+}
+
+export interface IContact {
+  phone_number: string;
+  email: string;
+  name: string;
+  message: string;
+}

@@ -8,7 +8,7 @@ function NavbarButtons({ className }: { className: string }) {
   const pages = [
     { page: "Anasayfa", href: "/" },
     { page: "Yayımlama Paketlerimiz", href: "/yayimlama-paketlerimiz" },
-    { page: "İletişim", href: "/iletişim" },
+    { page: "İletişim", href: "/iletisim" },
   ];
 
   return (

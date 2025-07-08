@@ -3,6 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import PurchaseLinks from "../Purchase/PurchaseLinks";
 function Book(bookProps: IBook) {
+
+ 
+
+
   return (
     <Link
       href={`kitap/${bookProps.title} `}
