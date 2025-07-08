@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Elpida Yayıncılık",
   description: "ELpida Yayınclık Websitesi",
   icons: {
-    icon: "/elpida-logo.png",
+    icon: "elpida-logo.png",
   },
 };
 
