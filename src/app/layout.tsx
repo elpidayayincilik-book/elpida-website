@@ -4,7 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
-import ink from "@/assets/inkwhite.png";
+import ink from "@/assets/inkwhite.webp";
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
 //   subsets: ["latin"],
@@ -35,7 +35,15 @@ export default function RootLayout({
         className={`  antialiased w-full h-full bg-white dark:bg-black overflow-x-hidden `}
       >
         <div className=" absolute justify-center md:right-[-10%] top-[-10%] sm:top-[-16%]  md:top-[-20%] flex   ">
-          <Image alt="" src={ink} width={500} height={600} />
+          <Image
+            alt="beyaz mürekkep lekesi elpida yayınclık'ın estetik bakış açısı"
+            src={ink}
+            width={500}
+            height={600}
+            priority
+            role="presentation"
+            
+          />
         </div>
         <Nav />
         {children}
