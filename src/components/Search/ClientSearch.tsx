@@ -64,7 +64,7 @@ function ClientSearch({ books }: { books: IBookWithAuthor[] }) {
               <Link
                 onClick={() => setSearchTerm("")}
                 className="p-4 flex gap-2 items-center"
-                href={`/kitap/${book.title}`}
+                href={`/kitap/${book.url_slug}`}
                 key={book.id}
               >
                 <Image src={book.picture} width={36} height={60} alt="" />
