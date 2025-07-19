@@ -45,7 +45,7 @@ async function BookTitle({ params }: TBookTitleProps) {
           </div>
           {!bookData && <p>Veri Bulunamadı</p>}
           {bookData && (
-            <div className="flex lg:flex-row justify-center items-center lg:items-start w-full flex-col lg:p-6  gap-8 h-[100%] place-items-center ">
+            <div className="border-5 border-red-200 flex lg:flex-row justify-center items-center lg:items-start w-full flex-col lg:p-6  gap-8 h-[100%] place-items-center ">
               <div className=" lg:w-1/2 w-full  bg-gray-100  rounded-xl justify-center items-center place-items-center">
                 <div className="w-full  bg-gray-100 border-1 border-gray-100  rounded-xl flex justify-center items-center place-items-center">
                   <div className="relative p-8 lg:h-[750] md:h-[500] min-h-[400] lg:w-[500] md:w-[400] w-[300] min-w-[300] place-items-center">
@@ -60,7 +60,7 @@ async function BookTitle({ params }: TBookTitleProps) {
                 </div>
               </div>
 
-              <div className="lg:w-1/2 w-full p-4  flex  flex-col gap-6 ">
+              <div className="lg:w-1/2 w-full border-5 border-red-600 p-4  flex  flex-col gap-6 ">
                 <div className="flex flex-col gap-1">
                   <p className="text-md font-serif font-[500] tracking-[2] rounded-3xl px-5 py-1 border-1 w-fit color-red bg-black text-white ">
                     {bookData.categories.category}
@@ -73,11 +73,13 @@ async function BookTitle({ params }: TBookTitleProps) {
                     <Link href={``}>{bookData.authors.fullname}</Link>
                   </p>
                 </div>
-                <p className="text-md font-serif whitespace-pre-line">
-                  {bookData.detail}
-                </p>
-                <div className="prose lg:prose-xl">
-                  <Markdown>{bookData.detail}</Markdown>
+                <div className="w-full" >
+                  <p className="text-md font-serif whitespace-pre-line">
+                    {bookData.detail}
+                  </p>
+                  <div className="prose min-w-full border-2 ">
+                    <Markdown>{bookData.detail}</Markdown>
+                  </div>
                 </div>
                 <div>
                   <p className="font-bold pb-2 text-xl border-b-1 ">Satın Al</p>

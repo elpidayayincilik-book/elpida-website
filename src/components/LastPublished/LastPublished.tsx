@@ -1,53 +1,54 @@
+import { IBook } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
-async function LastPublished() {
+import Markdown from "react-markdown";
+async function LastPublished(bookProps: IBook) {
   // const data = await  getLastPublished()
-  const data = {
-    id: 1,
-    title: "Karamazov Kardeşler",
-    author: "Fyodor Dostoyevski",
-    picture:
-      "https://jzixtbfuvspcnohqtzvi.supabase.co/storage/v1/object/sign/book-images/91JHHqEbX4L._UF1000,1000_QL80_.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85OWM2YWY5My04MjdkLTRkNTctYmM2My04ODEyZTA2MDM4ZDciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJib29rLWltYWdlcy85MUpISHFFYlg0TC5fVUYxMDAwLDEwMDBfUUw4MF8uanBnIiwiaWF0IjoxNzUwNzY0OTE2LCJleHAiOjIwNjYxMjQ5MTZ9.ffxTltN0mpEqalTtYYwMrqqd44rUEM70ToqoQxFDkPo",
-    detail:
-      "Dostoyevski'nin hayatının zirve romanı olarak bilinir. Romanın büyük bir bölümü Staraya Russa'da yazılmıştır. Dostoyevski, oldukça ağır bir dili olan roman için iki yıla yakın zaman harcamış ve 1880 yılının Kasım ayında bitirmiştir. Kitabın yayımlanmasından yaklaşık dört ay sonra yine bu kitap için hazırladığı büyük çaplı bir proje olan Büyük Bir Günahkar'ın Anıları ile uğraşırken ölmüştür.",
-  };
+
   return (
     <div className="px-3 md:px-8 py-3   ">
       <p className="font-bold font-serif text-2xl lg:py-8 py-6 text-center ">
         SON ÇIKAN
       </p>
-      <div className="lg:w-[75vw] w-full relative border-l-4 rounded-xl  ">
-        <div className=" shadow-xl flex justify-center bg-slate-200 rounded-xl p-1 md:p-12">
+      <a
+        href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZQKpFlRqpxhRCVZWFpBPxtJxVrVRFbNSXxwdgQXSPpqBZmxTHLsggCggSdXSSRXZQZkL"
+        target="_blank"
+      >
+        Contact via Gmail
+      </a>
+
+      <div className="lg:w-[75vw] w-full relative border-l-6 rounded-xl  ">
+        <div className=" shadow-xl flex justify-center bg-red-100 rounded-xl p-1 md:p-12 py-4">
           <div
-            key={data.title}
+            key={bookProps.title}
             className="flex md:flex-row flex-col md:justify-start justify-center md:items-start items-center w-full "
           >
             <div className=" flex flex-col gap-4 h-full">
-              <div className="justify-center min-w-[200] md:h-[360] h-[300]  justify-center items-center relative md:w-[240] px-6 py-3">
+              <div className="justify-center min-w-[250] md:h-[360] h-[300]  justify-center items-center relative md:w-[300] px-6 py-3">
                 <Image
-                  src={data.picture}
+                  src={bookProps.picture}
                   fill={true}
-                  alt={data.detail}
+                  alt={bookProps.detail}
                   sizes="100%"
                 />
               </div>
             </div>
-            <div className="flex flex-col px-4 md:pl-6 space-y-3 justify-start ">
+            <div className="w-full flex flex-col px-4 md:pl-6 space-y-3 justify-start ">
               <div>
                 <p className="text-lg md:text-2xl font-serif font-bold text-center md:text-left ">
-                  {data.title}
+                  {bookProps.title}
                 </p>
                 <p className="underline md:text-start text-center">
-                  Fyodor Dostoyevski
+                  {bookProps.authors.fullname}
                 </p>
               </div>
-              <div className="flex flex-col gap-4">
-                <p className="text-2xl font-serif font-medium text-lg md:text-xl">
-                  {data.detail}
-                </p>
-                <p className="text-2xl font-serif font-medium text-lg md:text-xl">
-                  {data.detail}
-                </p>
+              <div className="flex flex-col gap-4 w-full ">
+                {/* <p className="text-2xl font-serif font-medium text-lg md:text-xl">
+                  {bookProps.detail}
+                </p> */}
+                <div className="prose min-w-full ">
+                  <Markdown>{bookProps.detail}</Markdown>
+                </div>
                 <button className="md:w-fit bg-black text-white px-16 py-2 rounded-3xl hover:bg-gray-800 text-lg font-serif">
                   <Link
                     href={""}
