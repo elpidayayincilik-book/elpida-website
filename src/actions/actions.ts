@@ -14,6 +14,7 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
     categoryId,
     detail,
     picture,
+    url_slug,
     authors (
     id,
     fullname
@@ -23,6 +24,8 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
     )
     `
   )) as { data: IBookWithAuthor[] | null };
+
+  console.log("data booksss", data);
 
   if (data && data.length) {
     const dataToReturn: IBookWithAuthor[] = data.map((book) => ({
@@ -36,10 +39,10 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
   } else return null;
 }
 
-export async function getBookByTitle({
-  title,
+export async function getBookBySlug({
+  slug,
 }: {
-  title: string;
+  slug: string;
 }): Promise<null | IBookWithAuthor> {
   const { data } = (await supabase
     .from("books")
@@ -51,6 +54,7 @@ export async function getBookByTitle({
   categoryId,
   detail,
   picture,
+  url_slug,
   authors (
   id,
   fullname
@@ -60,8 +64,10 @@ export async function getBookByTitle({
   )
   `
     )
-    .eq("title", title)) as { data: IBookWithAuthor[] | null };
-  console.log("data with authorsss", data);
+    .eq("url_slug", slug)) as {
+    data: IBookWithAuthor[] | null;
+  };
+  console.log("DATA FOUND WITH SLUG", data);
 
   if (!data) {
     return null;
@@ -121,7 +127,7 @@ export const submitContactMessage = async (
 ): Promise<boolean> => {
   try {
     await supabase.from("contact").insert(body);
-console.log("trueee");
+    console.log("trueee");
 
     return true;
   } catch (error) {

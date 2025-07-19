@@ -21,6 +21,7 @@ export interface IBook {
   detail: string;
   picture: string;
   authors: IAuthor;
+  url_slug: string;
 }
 export interface IAuthor {
   id: number;
@@ -39,10 +40,11 @@ export interface IBookWithAuthor {
   picture: string;
   authors: IAuthor;
   categories: ICategory;
+  url_slug: string;
 }
 
 export type TBookTitleProps = {
-  params: Promise<{ bookTitle: string }>;
+  params: Promise<{ bookSlug: string }>;
 };
 
 export interface ICommentSubmit {

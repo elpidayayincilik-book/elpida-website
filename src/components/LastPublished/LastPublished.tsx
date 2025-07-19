@@ -16,7 +16,7 @@ async function LastPublished() {
       <p className="font-bold font-serif text-2xl lg:py-8 py-6 text-center ">
         SON ÇIKAN
       </p>
-      <div className="lg:w-[75vw] w-full relative  ">
+      <div className="lg:w-[75vw] w-full relative border-l-4 rounded-xl  ">
         <div className=" shadow-xl flex justify-center bg-slate-200 rounded-xl p-1 md:p-12">
           <div
             key={data.title}

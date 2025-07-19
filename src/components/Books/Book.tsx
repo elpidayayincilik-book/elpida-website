@@ -3,13 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import PurchaseLinks from "../Purchase/PurchaseLinks";
 function Book(bookProps: IBook) {
-
- 
-
-
   return (
     <Link
-      href={`kitap/${bookProps.title} `}
+      href={`kitap/${bookProps.url_slug} `}
       className="transition-transform shadow-sm rounded-md duration-300 hover:-translate-y-2 focus:-translate-y-2  active:-translate-y-2  bg-inherit  "
     >
       <div className=" w-fit rounded-lg  flex flex-col justify-center min:w-[120] w-[150] md:w-[200] ">

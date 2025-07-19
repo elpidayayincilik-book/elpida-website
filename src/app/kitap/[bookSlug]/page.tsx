@@ -1,31 +1,31 @@
-import { getBookByTitle } from "@/actions/actions";
+import { getBookBySlug } from "@/actions/actions";
 import type { Metadata } from "next";
 import type { TBookTitleProps } from "@/types/types";
+
 import Image from "next/image";
 import Link from "next/link";
-
 import Comment from "@/components/Comment/Comment";
 import PurchaseLinks from "@/components/Purchase/PurchaseLinks";
+import Markdown from "react-markdown";
 
 export async function generateMetadata({
   params,
 }: TBookTitleProps): Promise<Metadata> {
-  const { bookTitle } = await params;
+  const { bookSlug } = await params;
   //  const awaitedBookTitle = bookTitle;
-  const decodedBookName = decodeURIComponent(bookTitle);
   return {
     title: {
-      default: `${decodedBookName.replaceAll("-", " ")} | Detaylar`,
+      default: `${bookSlug.replaceAll("-", " ")} | Detaylar`,
       template: "div",
     },
-    description: `Find out more about the book: ${bookTitle}`,
+    description: `Find out more about the book: ${bookSlug}`,
   };
 }
 
 async function BookTitle({ params }: TBookTitleProps) {
-  const { bookTitle } = await params;
-  const decodedBookTitle = decodeURIComponent(bookTitle.replaceAll("-", " "));
-  const bookData = await getBookByTitle({ title: decodedBookTitle });
+  const { bookSlug } = await params;
+  const bookData = await getBookBySlug({ slug: bookSlug });
+
   // const bookId = getIdByUrlSlug(bookTitle)
 
   return (
@@ -62,7 +62,7 @@ async function BookTitle({ params }: TBookTitleProps) {
 
               <div className="lg:w-1/2 w-full p-4  flex  flex-col gap-6 ">
                 <div className="flex flex-col gap-1">
-                  <p className="text-md font-serif rounded-3xl px-5 py-1 border-1 w-fit color-red bg-black text-white ">
+                  <p className="text-md font-serif font-[500] tracking-[2] rounded-3xl px-5 py-1 border-1 w-fit color-red bg-black text-white ">
                     {bookData.categories.category}
                   </p>
 
@@ -73,10 +73,12 @@ async function BookTitle({ params }: TBookTitleProps) {
                     <Link href={``}>{bookData.authors.fullname}</Link>
                   </p>
                 </div>
-                <p className="text-md font-serif">{bookData.detail}</p>
-                <p className="text-md font-serif">{bookData.detail}</p>{" "}
-                <p className="text-md font-serif">{bookData.detail}</p>{" "}
-                <p className="text-md font-serif">{bookData.detail}</p>
+                <p className="text-md font-serif whitespace-pre-line">
+                  {bookData.detail}
+                </p>
+                <div className="prose lg:prose-xl">
+                  <Markdown>{bookData.detail}</Markdown>
+                </div>
                 <div>
                   <p className="font-bold pb-2 text-xl border-b-1 ">Satın Al</p>
                   <PurchaseLinks
