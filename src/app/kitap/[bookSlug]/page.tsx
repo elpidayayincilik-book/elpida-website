@@ -83,6 +83,7 @@ async function BookTitle({ params }: TBookTitleProps) {
                 </div>
                 <div>
                   <p className="font-bold pb-2 text-xl border-b-1 ">Satın Al</p>
+
                   <PurchaseLinks
                     className="flex-wrap xl:flex-nowrap rounded-3xl  py-3 flex flex-row gap-2 "
                     links={{
@@ -94,6 +95,7 @@ async function BookTitle({ params }: TBookTitleProps) {
                     iconSize={24}
                   />
                 </div>
+
                 <ul>
                   <p className="font-bold font-md pb-2">Künye:</p>
                   <li>

@@ -18,7 +18,7 @@ function SwiperCLient({ sliders }: { sliders: ISlider[] }) {
       }}
       navigation={true}
       modules={[Pagination, Navigation, Mousewheel]}
-      className="w-screen xl:h-[600] md:h-[400] h-[200] "
+      className="w-[75vw] xl:h-[400] md:h-[400] h-[200] "
     >
       {sliders.map((item: ISlider) => {
         return (

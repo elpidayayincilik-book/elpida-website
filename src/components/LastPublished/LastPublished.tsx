@@ -10,13 +10,8 @@ async function LastPublished(bookProps: IBook) {
       <p className="font-bold font-serif text-2xl lg:py-8 py-6 text-center ">
         SON ÇIKAN
       </p>
-      {/* <a
-        href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZQKpFlRqpxhRCVZWFpBPxtJxVrVRFbNSXxwdgQXSPpqBZmxTHLsggCggSdXSSRXZQZkL"
-        target="_blank"
-      >
-        Contact via Gmail
-      </a> */}
-      <div className="flex justify-center" >
+
+      <div className="flex justify-center">
         <div className="lg:w-[75vw] w-full relative border-l-6 rounded-xl  ">
           <div className=" shadow-xl flex justify-center bg-gray-200 rounded-xl  p-1 md:p-12 py-4">
             <div

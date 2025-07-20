@@ -6,8 +6,10 @@ function NavbarButtons({ className }: { className: string }) {
   const path = usePathname() as TPage;
 
   const pages = [
-    { page: "Anasayfa", href: "/" },
-    { page: "Yayımlama Paketlerimiz", href: "/yayimlama-paketlerimiz" },
+    // { page: "Anasayfa", href: "/" },
+    { page: "Hakkımızda", href: "/hakkimizda" },
+    { page: "Kitaplar", href: "/#kitaplar" },
+    { page: "Yayın Paketlerimiz", href: "/yayin-paketlerimiz" },
     { page: "İletişim", href: "/iletisim" },
   ];
 

@@ -50,6 +50,12 @@ function PublishDetails() {
           )}
         </div>
       </div>
+      <a
+        href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZQKpFlRqpxhRCVZWFpBPxtJxVrVRFbNSXxwdgQXSPpqBZmxTHLsggCggSdXSSRXZQZkL"
+        target="_blank"
+      >
+        Contact via Gmail
+      </a>
     </div>
   );
 }

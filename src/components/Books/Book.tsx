@@ -1,7 +1,7 @@
 import { IBook } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
-import PurchaseLinks from "../Purchase/PurchaseLinks";
+// import PurchaseLinks from "../Purchase/PurchaseLinks";
 function Book(bookProps: IBook) {
   return (
     <Link
@@ -38,14 +38,36 @@ function Book(bookProps: IBook) {
           </div>
         </div>
 
-        <div className="p-1 flex flex-col gap-1 text-center ">
-          <p className="text-[14px] md:text-md font-bold  text-gray-900 ">
-            {bookProps.title}
-          </p>
+        <div className="p-1 flex flex-col gap-1 text-center  ">
+          <div className="group">
+            <p
+              data-ripple-light="true"
+              data-tooltip-target="tooltip"
+              data-tooltip-style="light"
+              className="  text-[14px] md:text-md font-bold w-full overflow-hidden text-gray-900 line-clamp-1"
+            >
+              {bookProps.title}
+
+              <div
+                data-tooltip="tooltip"
+                className="absolute hidden group-active:block  group-hover:block focus-hover:block   z-50 whitespace-normal break-words rounded-lg bg-black py-1.5 px-3 font-sans text-sm font-normal text-white focus:outline-none"
+              >
+                {bookProps.title}
+              </div>
+            </p>
+          </div>
           <p className=" animate-wiggle text-sm md:text:md font-normal text-gray-900">
             {bookProps.authors.fullname}
           </p>
-          <PurchaseLinks
+          <div className="flex flex-col gap-4 text-left ">
+            <p className=" bg-black text-white rounded-lg p-1 ">FİYAT:  
+              <span className="line-through">{"  "} 299</span>
+            </p>
+            <p className="text-md bg-gray-400 rounded-xl p-2 text-white">
+              İNDİRMLİ FİYATI: 229
+            </p>
+          </div>
+          {/* <PurchaseLinks
             className="flex flex-row gap-2 justify-center"
             links={{
               amazon: "",
@@ -54,7 +76,7 @@ function Book(bookProps: IBook) {
               trendyol: "",
             }}
             iconSize={24}
-          />
+          /> */}
         </div>
       </div>
     </Link>
