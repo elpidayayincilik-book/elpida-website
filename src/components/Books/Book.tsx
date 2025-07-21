@@ -1,25 +1,25 @@
 import { IBook } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
+import PurchaseLinks from "../Purchase/PurchaseLinks";
+import PurchaseButton from "../Purchase/PurchaseButton";
 // import PurchaseLinks from "../Purchase/PurchaseLinks";
 function Book(bookProps: IBook) {
   return (
-    <Link
-      href={`kitap/${bookProps.url_slug} `}
-      className="transition-transform shadow-sm rounded-md duration-300 hover:-translate-y-2 focus:-translate-y-2  active:-translate-y-2  bg-inherit  "
-    >
-      <div className=" w-fit rounded-lg  flex flex-col justify-center min:w-[140] w-[180] md:w-[200] ">
-        <div className="flex relative w-[100%] justify-center ">
-          <div className=" h-[180] w-[100%] flex justify-center md:h-[260]  xl:h-[240]  min:h-[180] items-center  ">
-            <Image
-              className="rounded-t-lg  p-1 "
-              src={bookProps.picture}
-              alt=""
-              fill
-              sizes="100%"
-            />
+    <div className=" transition-transform shadow-sm rounded-md duration-300 hover:-translate-y-2 focus:-translate-y-2  active:-translate-y-2  bg-inherit flex flex-col justify-center items-center ">
+      <Link href={`kitap/${bookProps.url_slug} `}>
+        <div className="  w-fit rounded-lg  flex flex-col justify-center min-w-[160] w-[180] md:w-[200] ">
+          <div className="flex relative w-[100%] justify-center ">
+            <div className=" h-[180] w-[100%] flex justify-center md:h-[260]  xl:h-[240]  min-h-[180] items-center  ">
+              <Image
+                className="rounded-t-lg p-1 "
+                src={bookProps.picture}
+                alt=""
+                fill
+                sizes="100%"
+              />
 
-            {/* <div className="absolute top-[4] right-[4] transition-transform duration-300 opacity-[0] group-hover:opacity-[100]  w-fit group-focus:opacity-[100] group-active:opacity-[100]  ">
+              {/* <div className="absolute top-[4] right-[4] transition-transform duration-300 opacity-[0] group-hover:opacity-[100]  w-fit group-focus:opacity-[100] group-active:opacity-[100]  ">
               <svg
                 width=" 32"
                 height="32"
@@ -36,18 +36,19 @@ function Book(bookProps: IBook) {
                 ></path>
               </svg>
             </div> */}
+            </div>
           </div>
-        </div>
 
-        <div className="p-1 flex flex-col gap-1 text-center  ">
-          <div className="group">
-            <p
+          <div className="p-1 flex  flex-col gap-1 text-center  ">
+            <div
               data-ripple-light="true"
               data-tooltip-target="tooltip"
               data-tooltip-style="light"
-              className=" uppercase text-[12px]  md:text-md font-bold w-full overflow-hidden text-gray-900 line-clamp-1"
+              className="group "
             >
-              {bookProps.title}
+              <p className="uppercase text-[12px]  md:text-md font-bold w-full overflow-hidden text-gray-900 line-clamp-1">
+                {bookProps.title}
+              </p>
 
               <div
                 data-tooltip="tooltip"
@@ -55,36 +56,15 @@ function Book(bookProps: IBook) {
               >
                 {bookProps.title}
               </div>
-            </p>
-          </div>
-          <p className=" animate-wiggle text-sm md:text:md font-normal text-gray-900">
-            {bookProps.authors.fullname}
-          </p>
-          <div className="flex flex-row gap-1 pt-1 text-center justify-center items-center ">
-            <p className="border-r-3 text-black min-w-fit  p-1 pr-2 ">
-              <span className="line-through">299 TL</span>
-            </p>
-            <div className="text-[10px] md:text-[12px] text-red-700  rounded-xl p-2">
-              <p>İNDİRMLİ FİYATI:</p>
-              <p className="text-lg text-left ">229 TL</p>
             </div>
+            <p className=" animate-wiggle text-sm md:text:md font-normal text-gray-900">
+              {bookProps.authors.fullname}
+            </p>
           </div>
-          {/* <PurchaseLinks
-            className="flex flex-row gap-2 justify-center"
-            links={{
-              amazon: "",
-              dr: "",
-              kitapyurdu: "",
-              trendyol: "",
-            }}
-            iconSize={24}
-          /> */}
         </div>
-        <div className="text-center relative p-2 w-full  bg-black/80 p-3 top-[40%] text-white">
-          <p>🛒 SATIN AL</p>
-        </div>
-      </div>
-    </Link>
+      </Link>
+      <PurchaseButton />
+    </div>
   );
 }
 export default Book;

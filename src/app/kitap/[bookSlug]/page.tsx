@@ -5,8 +5,8 @@ import type { TBookTitleProps } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import Comment from "@/components/Comment/Comment";
-import PurchaseLinks from "@/components/Purchase/PurchaseLinks";
 import Markdown from "react-markdown";
+import PurchaseButton from "@/components/Purchase/PurchaseButton";
 
 export async function generateMetadata({
   params,
@@ -38,7 +38,10 @@ async function BookTitle({ params }: TBookTitleProps) {
       <div className="flex justify-center  overflow-hidden">
         <div className=" w-full overflow-hidden ">
           <div className="flex  pl-4 lg:pl-6 pt-6  justify-start text-sm  lg:px-8">
-            <Link href={"/kitaplar"} className=" font-semibold border-r-3 px-2">
+            <Link
+              href={"/#kitaplar"}
+              className=" font-semibold border-r-3 px-2"
+            >
               Kitaplar
             </Link>
             <p className=" px-2 "> {bookData?.title} </p>
@@ -62,10 +65,9 @@ async function BookTitle({ params }: TBookTitleProps) {
 
               <div className="lg:w-1/2 w-full p-4  flex  flex-col gap-6 ">
                 <div className="flex flex-col gap-1">
-                  <p className="text-md font-serif font-[500] tracking-[2] rounded-3xl px-5 py-1 border-1 w-fit color-red bg-black text-white ">
+                  {/* <p className="text-md font-serif font-[500] tracking-[2] rounded-3xl px-5 py-1 border-1 w-fit color-red bg-black text-white ">
                     {bookData.categories.category}
-                  </p>
-
+                  </p> */}
                   <p className=" text-2xl md:text-4xl font-serif">
                     {bookData.title}
                   </p>
@@ -81,19 +83,8 @@ async function BookTitle({ params }: TBookTitleProps) {
                     <Markdown>{bookData.detail}</Markdown>
                   </div>
                 </div>
-                <div>
-                  <p className="font-bold pb-2 text-xl border-b-1 ">Satın Al</p>
-
-                  <PurchaseLinks
-                    className="flex-wrap xl:flex-nowrap rounded-3xl  py-3 flex flex-row gap-2 "
-                    links={{
-                      amazon: "",
-                      dr: "",
-                      kitapyurdu: "",
-                      trendyol: "",
-                    }}
-                    iconSize={24}
-                  />
+                <div className="border-1 border-gray-500/20  rounded-lg ">
+                  <PurchaseButton />
                 </div>
 
                 <ul>
