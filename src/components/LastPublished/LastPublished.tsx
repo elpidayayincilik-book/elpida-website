@@ -19,7 +19,7 @@ async function LastPublished(bookProps: IBook) {
               className="  flex md:flex-row flex-col md:justify-start justify-center md:items-start items-center w-full "
             >
               <div className=" flex flex-col gap-4 h-full">
-                <div className="justify-center min-w-[250] md:h-[360] h-[300]  justify-center items-center relative md:w-[300] px-6 py-3">
+                <div className="justify-center min-w-[240] md:h-[320] h-[260]  justify-center items-center relative md:w-[240] px-6 py-3">
                   <Image
                     src={bookProps.picture}
                     fill={true}

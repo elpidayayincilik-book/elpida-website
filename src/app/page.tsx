@@ -7,7 +7,7 @@ import IntroSlider from "@/components/Slider/IntroSlider";
 
 export default function Home() {
   return (
-    <div className="z-[16] flex flex-col justify-center items-center">
+    <div className="z-[16] bg-white flex flex-col justify-center items-center">
       <IntroSlider />
       <BooksList />
       <AboutUs />

@@ -6,7 +6,7 @@ import Link from "next/link";
 async function IntroWithInk() {
   const books = await getBooks();
   return (
-    <div className="w-full flex justify-center bg-gray-100 border-b-8 ">
+    <div className="w-full flex justify-center bg-white border-b-8 ">
       <div className="p-4 xl:w-[80vw] lg:w-[90vw] w-full flex flex-row flex-wrap md:flex-nowrap justify-center items-center gap-4 md:gap-12 ">
         <Link href={"/"}>
           <div className="flex flex-col justify-center items-center">

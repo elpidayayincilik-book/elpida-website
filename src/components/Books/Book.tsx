@@ -10,7 +10,7 @@ function Book(bookProps: IBook) {
     >
       <div className=" w-fit rounded-lg  flex flex-col justify-center min:w-[140] w-[180] md:w-[200] ">
         <div className="flex relative w-[100%] justify-center ">
-          <div className="relative h-[180] w-[100%] flex justify-center md:h-[260]  xl:h-[240]  min:h-[180] items-center  ">
+          <div className=" h-[180] w-[100%] flex justify-center md:h-[260]  xl:h-[240]  min:h-[180] items-center  ">
             <Image
               className="rounded-t-lg  p-1 "
               src={bookProps.picture}
@@ -18,6 +18,7 @@ function Book(bookProps: IBook) {
               fill
               sizes="100%"
             />
+
             {/* <div className="absolute top-[4] right-[4] transition-transform duration-300 opacity-[0] group-hover:opacity-[100]  w-fit group-focus:opacity-[100] group-active:opacity-[100]  ">
               <svg
                 width=" 32"
@@ -44,7 +45,7 @@ function Book(bookProps: IBook) {
               data-ripple-light="true"
               data-tooltip-target="tooltip"
               data-tooltip-style="light"
-              className="  text-[14px] md:text-md font-bold w-full overflow-hidden text-gray-900 line-clamp-1"
+              className=" uppercase text-[12px]  md:text-md font-bold w-full overflow-hidden text-gray-900 line-clamp-1"
             >
               {bookProps.title}
 
@@ -59,13 +60,14 @@ function Book(bookProps: IBook) {
           <p className=" animate-wiggle text-sm md:text:md font-normal text-gray-900">
             {bookProps.authors.fullname}
           </p>
-          <div className="flex flex-col gap-4 text-left ">
-            <p className=" bg-black text-white rounded-lg p-1 ">FİYAT:  
-              <span className="line-through">{"  "} 299</span>
+          <div className="flex flex-row gap-1 pt-1 text-center justify-center items-center ">
+            <p className="border-r-3 text-black min-w-fit  p-1 pr-2 ">
+              <span className="line-through">299 TL</span>
             </p>
-            <p className="text-md bg-gray-400 rounded-xl p-2 text-white">
-              İNDİRMLİ FİYATI: 229
-            </p>
+            <div className="text-[10px] md:text-[12px] text-red-700  rounded-xl p-2">
+              <p>İNDİRMLİ FİYATI:</p>
+              <p className="text-lg text-left ">229 TL</p>
+            </div>
           </div>
           {/* <PurchaseLinks
             className="flex flex-row gap-2 justify-center"
@@ -77,6 +79,9 @@ function Book(bookProps: IBook) {
             }}
             iconSize={24}
           /> */}
+        </div>
+        <div className="text-center relative p-2 w-full  bg-black/80 p-3 top-[40%] text-white">
+          <p>🛒 SATIN AL</p>
         </div>
       </div>
     </Link>

@@ -4,7 +4,8 @@ import "./globals.css";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
-import ink from "@/assets/inkwhite.webp";
+import ink from "@/assets/ink-gray-2.png";
+
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
 //   subsets: ["latin"],

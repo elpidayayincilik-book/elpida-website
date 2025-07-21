@@ -4,21 +4,24 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Pagination, Navigation, Mousewheel } from "swiper/modules";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 function SwiperCLient({ sliders }: { sliders: ISlider[] }) {
   return (
     <Swiper
-      mousewheel={true}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
       slidesPerView={1}
       spaceBetween={24}
       pagination={{
         type: "bullets",
       }}
       navigation={true}
-      modules={[Pagination, Navigation, Mousewheel]}
-      className="w-[75vw] xl:h-[400] md:h-[400] h-[200] "
+      modules={[Pagination, Navigation, Autoplay]}
+      className="w-[76vw] xl:h-[400] md:h-[400] h-[200] "
     >
       {sliders.map((item: ISlider) => {
         return (

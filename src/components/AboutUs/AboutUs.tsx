@@ -1,4 +1,4 @@
-import bookBg from "@/assets/book6.jpg";
+import bookBg from "@/assets/book6.webp";
 import Link from "next/link";
 
 function AboutUs() {
