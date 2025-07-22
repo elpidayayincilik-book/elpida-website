@@ -1,11 +1,7 @@
-import { NextApiRequest } from "next";
 import { IBookWithAuthor } from "@/types/types";
 import { supabase } from "@/lib/supabase/server";
 
-export async function GET(
-  req: NextApiRequest,
-  { params }: { params: { slug: string } }
-) {
+export async function GET({ params }: { params: { slug: string } }) {
   console.log("params.slugggg", params.slug);
 
   const { data } = (await supabase
