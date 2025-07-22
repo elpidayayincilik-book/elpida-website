@@ -1,10 +1,12 @@
 import { IBookWithAuthor } from "@/types/types";
 import { supabase } from "@/lib/supabase/server";
 import { NextRequest } from "next/server";
-type Params = { slug: string };
 
-export async function GET(_: NextRequest, { params }: { params: Params }) {
-  console.log("params.slugggg", params.slug);
+export async function GET(
+  _: NextRequest,
+  { params }: { params: Promise<{ slug: string }> }
+) {
+  const { slug } = await params;
 
   const { data } = (await supabase
     .from("books")
@@ -26,7 +28,7 @@ export async function GET(_: NextRequest, { params }: { params: Params }) {
     )
     `
     )
-    .eq("url_slug", params.slug)) as {
+    .eq("url_slug", slug)) as {
     data: IBookWithAuthor[] | null;
   };
   console.log("DATA FOUND WITH SLUG", data);
