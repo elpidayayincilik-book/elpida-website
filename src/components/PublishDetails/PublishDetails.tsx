@@ -17,7 +17,7 @@ function PublishDetails() {
   ];
 
   return (
-    <div className="z-[250] " >
+    <div className="z-[250] relative" >
       <div className="flex sm:flex-row flex-col gap-4 justify-center p-6 items-center ">
         {publishTypes.map((publishType) => {
           return (

@@ -35,7 +35,7 @@ export default function RootLayout({
       <body
         className={`  antialiased w-full h-full bg-white dark:bg-black overflow-x-hidden `}
       >
-        <div className=" absolute justify-center md:right-[-10%] top-[-10%] sm:top-[-16%]  md:top-[-20%] flex   ">
+        <div className=" absolute justify-center md:right-[-10%] top-[-10%] sm:top-[-16%]  md:top-[-20%] flex  z-[0] ">
           <Image
             alt="beyaz mürekkep lekesi elpida yayınclık'ın estetik bakış açısı"
             src={ink}
