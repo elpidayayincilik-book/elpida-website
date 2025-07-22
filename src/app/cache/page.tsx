@@ -1,5 +1,5 @@
 async function Cache() {
-  const data = await fetch("http://localhost:3000/api/getBooks", {
+  const data = await fetch("https://www.elpidakitap.com.tr/api/getBooks", {
     cache: "default",
     next: {
       revalidate: 3600,
