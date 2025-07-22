@@ -1,13 +1,13 @@
 "use client";
 import { useClickOutside } from "@/hooks/useClickOutside";
-import { IBookWithAuthor } from "@/types/types";
+import { IBookNames } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ChangeEvent } from "react";
 
-function ClientSearch({ books }: { books: IBookWithAuthor[] }) {
-  const [searchedBooks, setSearchedBooks] = useState<IBookWithAuthor[]>([]);
+function ClientSearch({ books }: { books: IBookNames[] }) {
+  const [searchedBooks, setSearchedBooks] = useState<IBookNames[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const ref = useClickOutside<HTMLDivElement>(() => setSearchTerm(""));
 

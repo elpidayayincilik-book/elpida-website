@@ -43,6 +43,14 @@ export interface IBookWithAuthor {
   url_slug: string;
 }
 
+export interface IBookNames {
+  id: number;
+  title: string;
+  picture: string;
+  url_slug: string;
+  authors: IAuthor;
+}
+
 export type TBookTitleProps = {
   params: Promise<{ bookSlug: string }>;
 };
@@ -101,4 +109,3 @@ export interface IPublishPackage {
   title: string;
   picture: string;
 }
-

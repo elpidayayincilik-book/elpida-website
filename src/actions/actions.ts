@@ -1,4 +1,5 @@
 import {
+  IBookNames,
   IBookWithAuthor,
   ICommentSubmit,
   IContact,
@@ -35,6 +36,30 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
         .data.publicUrl,
     }));
     console.log("dataToReturn", dataToReturn);
+
+    return dataToReturn;
+  } else return null;
+}
+
+export async function getBooksNames(): Promise<null | IBookNames[]> {
+  const { data } = (await supabase.from("books").select(
+    `id,
+    title,
+    picture,
+    url_slug,
+    authors (
+    id,
+    fullname
+    )
+    `
+  )) as { data: IBookNames[] | null };
+
+  if (data && data.length) {
+    const dataToReturn: IBookNames[] = data.map((book) => ({
+      ...book,
+      picture: supabase.storage.from("book-images").getPublicUrl(book.picture)
+        .data.publicUrl,
+    }));
 
     return dataToReturn;
   } else return null;

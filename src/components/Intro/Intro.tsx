@@ -1,10 +1,10 @@
 import Image from "next/image";
 import logo from "@/assets/elpida-logo.jpeg";
-import { getBooks } from "@/actions/actions";
+import { getBooksNames } from "@/actions/actions";
 import ClientSearch from "../Search/ClientSearch";
 import Link from "next/link";
 async function IntroWithInk() {
-  const books = await getBooks();
+  const books = await getBooksNames();
   return (
     <div className="w-full flex justify-center bg-white border-b-8 ">
       <div className="p-4 xl:w-[80vw] lg:w-[90vw] w-full flex flex-row flex-wrap md:flex-nowrap justify-center items-center gap-4 md:gap-12 ">
