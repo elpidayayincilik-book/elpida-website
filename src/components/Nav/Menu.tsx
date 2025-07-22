@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavbarButtons from "./NavbarButtons";
+import { usePathname } from "next/navigation";
 import { useClickOutside } from "@/hooks/useClickOutside";
 
 function Menu() {
+  const path = usePathname();
   const [open, setOpen] = useState(false);
   const refMenu = useClickOutside<HTMLDivElement>(() => setOpen(false));
-
+  useEffect(() => {
+    setOpen(false);
+  }, [path]);
   return (
     <div className="justify-end items-center block md:hidden min-w-fit">
       <a onClick={() => setOpen(true)} className="cursor-pointer justify-end">
