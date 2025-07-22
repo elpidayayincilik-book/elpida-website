@@ -1,4 +1,4 @@
-import { getBookBySlug } from "@/actions/getBooks";
+// import { getBookBySlug } from "@/actions/getBooks";
 import type { Metadata } from "next";
 import type { TBookTitleProps } from "@/types/types";
 
@@ -24,8 +24,17 @@ export async function generateMetadata({
 
 async function BookTitle({ params }: TBookTitleProps) {
   const { bookSlug } = await params;
-  const bookData = await getBookBySlug({ slug: bookSlug });
-
+  // const bookData = await getBookBySlug({ slug: bookSlug });
+  const bookRes = await fetch(
+    `https://elpidakitap.com.tr/api/getBookBySlug/${bookSlug}`,
+    {
+      cache: "force-cache",
+      next: {
+        revalidate: 36000,
+      },
+    }
+  );
+  const bookData = await bookRes.json();
   // const bookId = getIdByUrlSlug(bookTitle)
 
   return (
