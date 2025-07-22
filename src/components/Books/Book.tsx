@@ -1,7 +1,7 @@
 import { IBook } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
-import PurchaseLinks from "../Purchase/PurchaseLinks";
+// import PurchaseLinks from "../Purchase/PurchaseLinks";
 import PurchaseButton from "../Purchase/PurchaseButton";
 // import PurchaseLinks from "../Purchase/PurchaseLinks";
 function Book(bookProps: IBook) {
