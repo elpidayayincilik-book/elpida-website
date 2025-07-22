@@ -94,3 +94,11 @@ export interface IContact {
   name: string;
   message: string;
 }
+
+export interface IPublishPackage {
+  id: string;
+  detail: string;
+  title: string;
+  picture: string;
+}
+

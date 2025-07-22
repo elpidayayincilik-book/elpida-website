@@ -2,6 +2,7 @@ import {
   IBookWithAuthor,
   ICommentSubmit,
   IContact,
+  IPublishPackage,
   ISlider,
 } from "@/types/types";
 import { supabase } from "../lib/supabase/server";
@@ -133,5 +134,26 @@ export const submitContactMessage = async (
   } catch (error) {
     console.log("error", error);
     return false;
+  }
+};
+
+export const getPublishPackages = async () => {
+  try {
+    const { data } = (await supabase.from("publish_packages").select()) as {
+      data: IPublishPackage[] | null;
+    };
+
+    if (data) {
+      const dataToReturn = data.map((item) => ({
+        ...item,
+        picture: supabase.storage
+          .from("publish-packages-images")
+          .getPublicUrl(item.picture).data.publicUrl,
+      }));
+      return dataToReturn;
+    }
+  } catch (error) {
+    console.log(error);
+    return null;
   }
 };

@@ -1,33 +1,29 @@
 "use client";
 
 import { useState } from "react";
-import FreePublish from "./FreePublish";
-import SpecialPublish from "./SpecialPublish";
-import AcademicPublish from "./AcademicPublish";
-
-function PublishDetails() {
-  type TPubslishType = "free" | "academic" | "special";
-
-  const [activeChoice, setActiveChoice] = useState<TPubslishType>("free");
-
-  const publishTypes = [
-    { id: 1, type: "free", title: "Ücretsiz Yayım" },
-    { id: 2, type: "academic", title: "Akademik Yayım" },
-    { id: 3, type: "special", title: "Özel Yayım" },
-  ];
+import { IPublishPackage } from "@/types/types";
+import Image from "next/image";
+function PublishDetails({
+  publishDetails,
+}: {
+  publishDetails: IPublishPackage[];
+}) {
+  const [activeChoice, setActiveChoice] = useState<IPublishPackage>(
+    publishDetails[0]
+  );
 
   return (
-    <div className="z-[250] relative" >
-      <div className="flex sm:flex-row flex-col gap-4 justify-center p-6 items-center ">
-        {publishTypes.map((publishType) => {
+    <div className="z-[250] gap-4 justify-center p-2 items-center relative flex flex-col">
+      <div className=" justify-center flex sm:flex-row flex-col items-center gap-4 ">
+        {publishDetails.map((publishType) => {
           return (
             <button
               className={`${
-                activeChoice === publishType.type
+                activeChoice.title === publishType.title
                   ? "bg-gray-800 text-white underline"
                   : ""
               }  border-1 px-4 py-3 rounded-3xl cursor-pointer hover:underline w-fit`}
-              onClick={() => setActiveChoice(publishType.type as TPubslishType)}
+              onClick={() => setActiveChoice(publishType)}
               key={publishType.title}
             >
               {" "}
@@ -36,26 +32,27 @@ function PublishDetails() {
           );
         })}
       </div>
-
-      <div className="lg:max-w-full flex justify-center w-full sm:p-4 p-2 ">
-        <div className="xl:max-w-[64vw] lg:max-w-[75vw] w-full">
-          {activeChoice === "free" ? (
-            <FreePublish />
-          ) : activeChoice === "special" ? (
-            <SpecialPublish />
-          ) : activeChoice === "academic" ? (
-            <AcademicPublish />
-          ) : (
-            <FreePublish />
-          )}
+      {/* xl:max-w-[64vw] lg:max-w-[75vw] */}
+      <div className="lg:max-w-full flex justify-center w-full sm:p-4 sm:px-12 p-4 ">
+        <div className="  flex justify-center lg:flex-row flex-col md:gap-6 gap-2  ">
+          <div className="w-full flex justify-center">
+            <div className=" relative w-full md:w-[600] min-w-[300] md:min-w-[500] md:h-[600] h-[300]  justify-items-center place-items-center">
+              <Image src={activeChoice.picture} fill sizes="100%" alt="" />
+            </div>
+          </div>
+          <div>
+            <p className="whitespace-pre-line">{activeChoice.detail} </p>
+            <div className="mt-4 w-fit px-4 py-2 bg-red-500 rounded-xl text-white hover:cursor-pointer transform transition duration-200 hover:bg-red-600 ">
+              <a
+                href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZQKpFlRqpxhRCVZWFpBPxtJxVrVRFbNSXxwdgQXSPpqBZmxTHLsggCggSdXSSRXZQZkL"
+                target="_blank"
+              >
+                Dosya Gönder{" "}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <a
-        href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZQKpFlRqpxhRCVZWFpBPxtJxVrVRFbNSXxwdgQXSPpqBZmxTHLsggCggSdXSSRXZQZkL"
-        target="_blank"
-      >
-        Contact via Gmail
-      </a>
     </div>
   );
 }
