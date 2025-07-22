@@ -1,7 +1,11 @@
 import { IBookWithAuthor } from "@/types/types";
 import { supabase } from "@/lib/supabase/server";
+import { NextRequest } from "next/server";
 
-export async function GET({ params }: { params: { slug: string } }) {
+export async function GET(
+  _: NextRequest,
+  { params }: { params: { slug: string } }
+) {
   console.log("params.slugggg", params.slug);
 
   const { data } = (await supabase
