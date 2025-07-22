@@ -1,4 +1,4 @@
-import { getBookBySlug } from "@/actions/actions";
+import { getBookBySlug } from "@/actions/getBooks";
 import type { Metadata } from "next";
 import type { TBookTitleProps } from "@/types/types";
 

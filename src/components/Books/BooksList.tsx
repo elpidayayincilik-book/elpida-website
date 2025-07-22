@@ -1,4 +1,4 @@
-import { getBooks } from "@/actions/actions";
+import { getBooks } from "@/actions/getBooks";
 import Book from "./Book";
 import LastPublished from "../LastPublished/LastPublished";
 import Title from "./Title";

@@ -6,7 +6,7 @@ import "./globals.css";
 import IntroSlider from "@/components/Slider/IntroSlider";
 import ScrollToHash from "@/utils/ScrollToHash";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="z-[16] bg-white flex flex-col justify-center items-center">
       <ScrollToHash />

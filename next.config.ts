@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
       new URL("https://fikzlrjofpjddcubqawa.supabase.co/storage/**"),
     ],
   },
+  experimental: {
+    useCache: true,
+  },
 };
 
 export default nextConfig;
