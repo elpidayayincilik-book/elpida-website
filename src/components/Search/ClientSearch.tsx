@@ -57,7 +57,7 @@ function ClientSearch({ books }: { books: IBookWithAuthor[] }) {
       {searchTerm && searchedBooks.length > 0 && (
         <div
           ref={ref}
-          className="z-100 absolute w-full border-1 bg-white rounded-2xl  flex flex-col gap-3 max-h-[200] overflow-y-scroll overflow-x-hidden   "
+          className="z-[1000] absolute w-full border-1 bg-white rounded-2xl  flex flex-col gap-3 max-h-[200] overflow-y-scroll overflow-x-hidden   "
         >
           {searchedBooks?.map((book) => {
             return (

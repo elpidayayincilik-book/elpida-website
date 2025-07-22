@@ -30,7 +30,7 @@ async function BookTitle({ params }: TBookTitleProps) {
 
   return (
     <div
-      className="overflow-x-hidden"
+      className="overflow-x-hidden z-[100] relative "
       style={{
         overflow: "hidden",
       }}
@@ -40,7 +40,7 @@ async function BookTitle({ params }: TBookTitleProps) {
           <div className="flex  pl-4 lg:pl-6 pt-6  justify-start text-sm  lg:px-8">
             <Link
               href={"/#kitaplar"}
-              className=" font-semibold border-r-3 px-2"
+              className="z-[100] relative font-semibold border-r-3 px-2"
             >
               Kitaplar
             </Link>
