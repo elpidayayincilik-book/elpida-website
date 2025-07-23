@@ -5,7 +5,7 @@ import type { TBookTitleProps } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import Comment from "@/components/Comment/Comment";
-import Markdown from "react-markdown";
+// import Markdown from "react-markdown";
 import PurchaseButton from "@/components/Purchase/PurchaseButton";
 
 export async function generateMetadata({
@@ -88,9 +88,9 @@ async function BookTitle({ params }: TBookTitleProps) {
                   <p className="text-md font-serif whitespace-pre-line">
                     {bookData.detail}
                   </p>
-                  <div className="prose min-w-full  font-serif text-black font-[500]">
+                  {/* <div className="prose min-w-full  font-serif text-black font-[500]">
                     <Markdown>{bookData.detail}</Markdown>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="border-1 border-gray-500/20  rounded-lg ">
                   <PurchaseButton />
