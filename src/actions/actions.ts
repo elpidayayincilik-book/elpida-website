@@ -131,7 +131,11 @@ export const submitComment = async (
 };
 
 export const getSliders = async () => {
-  const { data } = (await supabase.from("sliders").select()) as {
+  const { data } = (await supabase
+    .from("sliders")
+    .select()
+    .order("created_at", { ascending: false })
+    .limit(5)) as {
     data: ISlider[] | null;
   };
   console.log("sldiers", data);

@@ -2,8 +2,10 @@
 import { IBookWithAuthor } from "@/types/types";
 import { supabase } from "../lib/supabase/server";
 export async function getBooks(): Promise<null | IBookWithAuthor[]> {
-  const { data } = (await supabase.from("books").select(
-    `id,
+  const { data } = (await supabase
+    .from("books")
+    .select(
+      `id,
     created_at,
     title,
     authorId,
@@ -19,7 +21,10 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
     category
     )
     `
-  )) as { data: IBookWithAuthor[] | null };
+    )
+    .order("publish_date", { ascending: false })) as {
+    data: IBookWithAuthor[] | null;
+  };
 
   console.log("data booksss", data);
 
