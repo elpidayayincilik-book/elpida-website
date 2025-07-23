@@ -17,17 +17,7 @@ async function BooksList() {
             <div className=" w-full grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 space-y-4 md:space-y-4  p-1 place-items-center">
               {!books && <p>Kitaplar Yükleniyor</p>}
               {books?.length &&
-                [
-                  ...books,
-                  ...books,
-                  ...books,
-                  ...books,
-                  ...books,
-                  ...books,
-                  ...books,
-                  ...books,
-                  ...books,
-                ].map((item, idx) => {
+                books.map((item, idx) => {
                   return <Book {...item} key={idx} />;
                 })}
             </div>
