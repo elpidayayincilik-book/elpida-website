@@ -35,7 +35,7 @@ function AboutUs() {
                   umudunu taşır.
                 </p>
                 <div className="flex justify-start ">
-                  <Link href={""}>
+                  <Link href={"/hakkimizda"}>
                     <p className="hover:bg-gray-900   text-white bg-black py-2 px-4 rounded-3xl text-sm ">
                       Vizyonumuz
                     </p>
