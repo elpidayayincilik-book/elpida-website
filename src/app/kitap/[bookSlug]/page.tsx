@@ -1,6 +1,6 @@
 // import { getBookBySlug } from "@/actions/getBooks";
 import type { Metadata } from "next";
-import type { TBookTitleProps } from "@/types/types";
+import type { IBook, TBookTitleProps } from "@/types/types";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +18,7 @@ export async function generateMetadata({
       default: `${bookSlug.replaceAll("-", " ")} | Detaylar`,
       template: "div",
     },
-    description: `Find out more about the book: ${bookSlug}`,
+    description: `${bookSlug} | Detaylar`,
   };
 }
 
@@ -34,7 +34,9 @@ async function BookTitle({ params }: TBookTitleProps) {
       },
     }
   );
-  const bookData = await bookRes.json();
+  const bookData: IBook = await bookRes.json();
+  console.log("bookData noww", bookData);
+
   // const bookId = getIdByUrlSlug(bookTitle)
 
   return (
@@ -93,7 +95,9 @@ async function BookTitle({ params }: TBookTitleProps) {
                   </div> */}
                 </div>
                 <div className="border-1 border-gray-500/20  rounded-lg ">
-                  <PurchaseButton />
+                  <PurchaseButton
+                    // purchaseLink={bookData.purchase_link_trendyol}
+                  />
                 </div>
 
                 <ul>
@@ -102,31 +106,20 @@ async function BookTitle({ params }: TBookTitleProps) {
                     <span className="font-bold font-md before:content-[''] pr-1">
                       Sayfa Sayısı:
                     </span>
-                    897
+                    {/* {bookData.page_number}{" "} */}
                   </li>
                   <li>
                     <span className="font-bold font-md before:content-[''] pr-1">
                       ISBN:
                     </span>
-                    897897897897
+                    {/* {bookData.isbn} */}
                   </li>
                   <li>
                     <span className="font-bold font-md before:content-[''] pr-1">
                       Çıkış Tarihi
                     </span>
-                    17.07.2025
-                  </li>
-                  <li>
-                    <span className="font-bold font-md before:content-[''] pr-1">
-                      Sayfa Sayısı:
-                    </span>
-                    897
-                  </li>
-                  <li>
-                    <span className="font-bold font-md before:content-[''] pr-1">
-                      ISBN:
-                    </span>
-                    897897897897
+                    {/* {bookData.publish_date.getMonth()}. */}
+                    {/* {bookData.publish_date.getFullYear()}{" "} */}
                   </li>
                 </ul>
               </div>

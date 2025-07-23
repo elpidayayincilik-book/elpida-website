@@ -19,6 +19,10 @@ export async function GET(
     detail,
     picture,
     url_slug,
+    isbn,
+    publish_date,
+    page_number,
+    purchase_link_trendyol,
     authors (
     id,
     fullname

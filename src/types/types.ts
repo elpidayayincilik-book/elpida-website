@@ -22,6 +22,10 @@ export interface IBook {
   picture: string;
   authors: IAuthor;
   url_slug: string;
+  isbn: string;
+  publish_date: Date;
+  page_number: number;
+  purchase_link_trendyol: string;
 }
 export interface IAuthor {
   id: number;
@@ -41,6 +45,10 @@ export interface IBookWithAuthor {
   authors: IAuthor;
   categories: ICategory;
   url_slug: string;
+  isbn: string;
+  publish_date: Date;
+  page_number: number;
+  purchase_link_trendyol: string;
 }
 
 export interface IBookNames {
