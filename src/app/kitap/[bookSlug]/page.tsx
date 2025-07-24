@@ -28,9 +28,9 @@ async function BookTitle({ params }: TBookTitleProps) {
   const bookRes = await fetch(
     `https://elpidakitap.com.tr/api/getBookBySlug/${bookSlug}`,
     {
-      cache: "force-cache",
+      cache: "default",
       next: {
-        revalidate: 36000,
+        revalidate: 60,
       },
     }
   );
@@ -96,7 +96,7 @@ async function BookTitle({ params }: TBookTitleProps) {
                 </div>
                 <div className="border-1 border-gray-500/20  rounded-lg ">
                   <PurchaseButton
-                    // purchaseLink={bookData.purchase_link_trendyol}
+                  purchaseLink={bookData.purchase_link_trendyol}
                   />
                 </div>
 
@@ -106,13 +106,13 @@ async function BookTitle({ params }: TBookTitleProps) {
                     <span className="font-bold font-md before:content-[''] pr-1">
                       Sayfa Sayısı:
                     </span>
-                    {/* {bookData.page_number}{" "} */}
+                    {bookData.page_number}{" "}
                   </li>
                   <li>
                     <span className="font-bold font-md before:content-[''] pr-1">
                       ISBN:
                     </span>
-                    {/* {bookData.isbn} */}
+                    {bookData.isbn}
                   </li>
                   <li>
                     <span className="font-bold font-md before:content-[''] pr-1">
