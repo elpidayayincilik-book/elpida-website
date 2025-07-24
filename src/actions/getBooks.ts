@@ -13,6 +13,7 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
     detail,
     picture,
     url_slug,
+    price,
      isbn,
     publish_date,
     page_number,

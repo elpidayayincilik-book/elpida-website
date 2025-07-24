@@ -96,7 +96,8 @@ async function BookTitle({ params }: TBookTitleProps) {
                 </div>
                 <div className="border-1 border-gray-500/20  rounded-lg ">
                   <PurchaseButton
-                  purchaseLink={bookData.purchase_link_trendyol}
+                    price={bookData.price}
+                    purchaseLink={bookData.purchase_link_trendyol}
                   />
                 </div>
 

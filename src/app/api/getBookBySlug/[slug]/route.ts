@@ -22,6 +22,7 @@ export async function GET(
     isbn,
     publish_date,
     page_number,
+    price,
     purchase_link_trendyol,
     authors (
     id,

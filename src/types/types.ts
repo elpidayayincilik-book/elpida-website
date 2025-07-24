@@ -26,6 +26,7 @@ export interface IBook {
   publish_date: Date;
   page_number: number;
   purchase_link_trendyol: string;
+  price: number;
 }
 export interface IAuthor {
   id: number;
@@ -49,6 +50,7 @@ export interface IBookWithAuthor {
   publish_date: Date;
   page_number: number;
   purchase_link_trendyol: string;
+  price: number;
 }
 
 export interface IBookNames {

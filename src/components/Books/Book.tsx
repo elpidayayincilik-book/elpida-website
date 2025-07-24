@@ -63,7 +63,10 @@ function Book(bookProps: IBook) {
           </div>
         </div>
       </Link>
-      <PurchaseButton />
+      <PurchaseButton
+        price={bookProps.price}
+        purchaseLink={bookProps.purchase_link_trendyol}
+      />
     </div>
   );
 }
