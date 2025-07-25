@@ -8,7 +8,7 @@ async function IntroWithInk() {
   return (
     <div className="w-full flex justify-center bg-white border-b-8 ">
       <div className="p-4 xl:w-[80vw] lg:w-[90vw] w-full flex flex-row flex-wrap md:flex-nowrap justify-center items-center gap-4 md:gap-12 ">
-        <Link href={"/"}>
+        <Link href={"/"} prefetch>
           <div className="flex flex-col justify-center items-center">
             <div className=" w-[64] md:w-[76]  h-[64] md:h-[76] relative ">
               <Image alt="" src={logo} fill sizes="100%" />
