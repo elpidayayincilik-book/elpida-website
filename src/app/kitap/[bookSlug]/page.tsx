@@ -12,13 +12,23 @@ export async function generateMetadata({
   params,
 }: TBookTitleProps): Promise<Metadata> {
   const { bookSlug } = await params;
-  //  const awaitedBookTitle = bookTitle;
+  const bookRes = await fetch(
+    `https://elpidakitap.com.tr/api/getBookBySlug/${bookSlug}`,
+    {
+      cache: "default",
+      next: {
+        revalidate: 60,
+      },
+    }
+  );
+  const bookData: IBook = await bookRes.json();
+
   return {
     title: {
-      default: `${bookSlug.replaceAll("-", " ")} | Detaylar`,
+      default: `${bookData.title} | Detaylar`,
       template: "div",
     },
-    description: `${bookSlug} | Detaylar`,
+    description: `${bookData.title} | Detaylar`,
   };
 }
 

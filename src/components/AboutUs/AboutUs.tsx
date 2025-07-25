@@ -25,15 +25,16 @@ function AboutUs() {
                   Elpida Yayıncılık genç ve bağımsız
                 </p>
                 <p className="w-6/8 lg:w-5/8  text-black font-100 text-normal text-sm lg:text-2xl ">
-                  Edebiyatın umudunu taşır. Elpida Yayıncılık genç ve bağımsız
-                  bir yayınevi olarak edebiyatın umudunu taşır.
+                  Elpida Yayıncılık, yayıncılığı yalnızca bir meslek değil, bir
+                  sorumluluk ve tutku olarak gören bir anlayışla kuruldu.
+                  <br />
+                  <br />
+                  Elpida Yayıncılık, edebiyatı merkeze alsa da yalnızca kurmaca
+                  eserlerle sınırlı kalmaz. Felsefe, sosyoloji, tarih, kültürel
+                  incelemeler, araştırma kitapları ve kişisel anlatılar başta
+                  olmak üzere çok çeşitli alanlarda yayın yapar.
                 </p>
-                <p className="w-6/8 lg:w-5/8  text-black font-100 text-normal text-sm lg:text-2xl ">
-                  Edebiyatın umudunu taşır. Elpida Yayıncılık genç ve bağımsız
-                  bir yayınevi olarak edebiyatın umudunu taşır. br Elpida
-                  Yayıncılık genç ve bağımsız bir yayınevi olarak edebiyatın
-                  umudunu taşır.
-                </p>
+
                 <div className="flex justify-start ">
                   <Link href={"/hakkimizda"}>
                     <p className="hover:bg-gray-900   text-white bg-black py-2 px-4 rounded-3xl text-sm ">

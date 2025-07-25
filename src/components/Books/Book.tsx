@@ -8,11 +8,11 @@ function Book(bookProps: IBook) {
   return (
     <div className=" transition-transform shadow-sm rounded-md duration-300 hover:-translate-y-2 focus:-translate-y-2  active:-translate-y-2  bg-inherit flex flex-col justify-center items-center ">
       <Link href={`kitap/${bookProps.url_slug} `}>
-        <div className="  w-fit rounded-lg  flex flex-col justify-center min-w-[160] w-[180] md:w-[200] ">
+        <div className="  w-fit rounded-lg  flex flex-col justify-center min-w-[160] max-w-[160] md:max-w-[200] md:w-[200] ">
           <div className="flex relative w-[100%] justify-center ">
             <div className=" h-[180] w-[100%] flex justify-center md:h-[260]  xl:h-[240]  min-h-[180] items-center  ">
               <Image
-                className="rounded-t-lg p-1 "
+                className="rounded-t-lg"
                 src={bookProps.picture}
                 alt=""
                 fill

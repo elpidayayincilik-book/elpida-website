@@ -46,7 +46,7 @@ async function LastPublished(bookProps: IBook) {
                 </div> */}
                   <button className="md:w-fit bg-black text-white px-16 py-2 rounded-3xl hover:bg-gray-800 text-lg font-serif">
                     <Link
-                      href={""}
+                      href={`/kitap/${bookProps.url_slug}`}
                       className="gap-2 flex justify-center items-center"
                     >
                       <p className=""> İncele</p>
