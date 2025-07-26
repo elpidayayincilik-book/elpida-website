@@ -38,18 +38,15 @@ function Contact() {
         <div className="z-[800] lg:grid  lg:grid-cols-3 justify-center p-2 text-center ">
           <div className=" grid p-3 ">
             <p className="font-bold text-xl  font-serif ">Adres</p>
-            <p className="font-serif">
-              {" "}
-              Çankaya/ANKARA Çankaya/ANKARA Çankaya/ANKARA Çankaya/ANKARA{" "}
-            </p>
+            <p className="font-serif"> Çankaya/ANKARA</p>
           </div>{" "}
           <div className=" grid p-3 ">
             <p className="font-bold text-xl  font-serif ">Mail</p>
             <p className="font-serif"> elpidayayincilik@gmail.com </p>
           </div>{" "}
           <div className=" grid p-3 ">
-            <p className="font-bold text-xl  font-serif ">Telefon</p>
-            <p className="font-serif"> 0 536 651 8624 </p>
+            <p className="font-bold text-xl  font-serif ">WhatsApp Hattı</p>
+            <p className="font-serif"> +90 533 813 77 96</p>
           </div>
         </div>
         <div className="bg-white p-2 md:p-12 rounded-2xl lg:w-[80vw] flex flex-col gap-6">
