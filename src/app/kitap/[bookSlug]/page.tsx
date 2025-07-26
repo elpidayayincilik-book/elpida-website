@@ -114,7 +114,7 @@ async function BookTitle({ params }: TBookTitleProps) {
                   />
                 </div>
 
-                <ul>
+                <ul className="pb-8" >
                   <p className="font-bold font-md pb-2">Künye:</p>
                   <li>
                     <span className="font-bold font-md before:content-[''] pr-1">
@@ -132,8 +132,9 @@ async function BookTitle({ params }: TBookTitleProps) {
                     <span className="font-bold font-md before:content-[''] pr-1">
                       Çıkış Tarihi
                     </span>
-                    {/* {bookData.publish_date.getMonth()}. */}
-                    {/* {bookData.publish_date.getFullYear()}{" "} */}
+                    {new Date(bookData.publish_date).toLocaleDateString(
+                      "tr-TR"
+                    )}
                   </li>
                 </ul>
               </div>

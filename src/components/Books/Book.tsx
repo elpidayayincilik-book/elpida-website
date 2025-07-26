@@ -51,7 +51,7 @@ function Book(bookProps: IBook) {
               data-tooltip-style="light"
               className="group "
             >
-              <p className="uppercase text-[12px]  md:text-md font-bold w-full overflow-hidden text-gray-900 line-clamp-1">
+              <p className=" uppercase text-[14px]  md:text-md font-bold w-full overflow-hidden text-gray-900 line-clamp-1">
                 {bookProps.title}
               </p>
 
@@ -62,7 +62,7 @@ function Book(bookProps: IBook) {
                 {bookProps.title}
               </div>
             </div>
-            <p className=" animate-wiggle text-sm md:text:md font-normal text-gray-900">
+            <p className="uppercase whitespace-nowrap overflow-hidden text-ellipsis text-[12px] md:text:md font-normal text-gray-900">
               {bookProps.authors.fullname}
             </p>
           </div>

@@ -44,11 +44,12 @@ function PublishDetails({
             <p className="whitespace-pre-line">{activeChoice.detail} </p>
             <div className="mt-4 w-fit px-4 py-2 bg-red-500 rounded-xl text-white hover:cursor-pointer transform transition duration-200 hover:bg-red-600 ">
               <a
-                href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZQKpFlRqpxhRCVZWFpBPxtJxVrVRFbNSXxwdgQXSPpqBZmxTHLsggCggSdXSSRXZQZkL"
+                href="https://mail.google.com/mail/u/0/?fs=1&to=elpidayayincilik@gmail.com&su=Dosya&tf=cm"
                 target="_blank"
               >
                 Dosya Gönder{" "}
               </a>
+              <br />
             </div>
           </div>
         </div>
