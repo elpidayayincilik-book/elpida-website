@@ -16,8 +16,8 @@ export async function generateMetadata({
     `https://elpidakitap.com.tr/api/getBookBySlug/${bookSlug}`,
     {
       cache: "default",
-      next: {
-        revalidate: 60,
+      headers: {
+        "x-secret-key": process.env.SECRET_KEY ?? "",
       },
     }
   );
@@ -41,6 +41,9 @@ async function BookTitle({ params }: TBookTitleProps) {
       cache: "default",
       next: {
         revalidate: 60,
+      },
+      headers: {
+        "x-secret-key": process.env.SECRET_KEY ?? "",
       },
     }
   );

@@ -36,7 +36,7 @@ export async function GET(
     .eq("url_slug", slug)) as {
     data: IBookWithAuthor[] | null;
   };
-  console.log("DATA FOUND WITH SLUG", data);
+//  console.log("DATA FOUND WITH SLUG", data);
 
   if (!data) {
     return Response.json(null);

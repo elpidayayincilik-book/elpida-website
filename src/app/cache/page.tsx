@@ -4,6 +4,9 @@ async function Cache() {
     next: {
       revalidate: 3600,
     },
+    headers: {
+      "x-secret-key": process.env.SECRET_KEY ?? "",
+    },
   });
   const dataToShow = await data.json();
 
