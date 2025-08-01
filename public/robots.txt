@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.elpidakitap.com.tr
+
+# Sitemaps
+Sitemap: https://www.elpidakitap.com.tr/sitemap.xml
