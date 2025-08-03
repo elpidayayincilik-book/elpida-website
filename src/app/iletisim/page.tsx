@@ -63,7 +63,7 @@ function Contact() {
                       name="email"
                       id="email"
                       className="w-full  py-1.5  text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
-                      placeholder="kullanıcı@mail"
+                      placeholder="Mail Adresiniz"
                       value={contactBody.email}
                       onChange={(e) =>
                         setContactBody((currentBody: IContact) => ({
@@ -86,7 +86,7 @@ function Contact() {
                       name="email"
                       id="email"
                       className="block   py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
-                      placeholder="kullanıcı@mail"
+                      placeholder="İsminiz"
                       value={contactBody.name}
                       onChange={(e) =>
                         setContactBody((curr) => ({
@@ -108,7 +108,7 @@ function Contact() {
                       name="email"
                       id="email"
                       className="py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
-                      placeholder="kullanıcı@mail"
+                      placeholder="Telefon Numaranız"
                       value={contactBody.phone_number}
                       onChange={(e) =>
                         setContactBody((curr) => ({
@@ -132,7 +132,7 @@ function Contact() {
                     name="comment"
                     id="comment"
                     className="block  grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
-                    placeholder="kullanıcı@mail"
+                    placeholder="Mesajınız"
                     value={contactBody.message}
                     onChange={(e) =>
                       setContactBody((curr) => ({

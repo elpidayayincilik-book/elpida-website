@@ -32,6 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light ">
+      <head>
+        <link rel="icon" href="https://www.elpidakitap.com.tr/favicon.ico" />
+      </head>
       <body
         className={`  antialiased w-full h-full bg-white dark:bg-black overflow-x-hidden `}
       >
@@ -43,7 +46,6 @@ export default function RootLayout({
             height={600}
             priority
             role="presentation"
-            
           />
         </div>
         <Nav />

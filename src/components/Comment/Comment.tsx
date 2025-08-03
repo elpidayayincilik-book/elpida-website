@@ -46,7 +46,7 @@ function Comment({ bookId }: { bookId: number }) {
                   name="email"
                   id="email"
                   className="block min-w-120 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
-                  placeholder="kullanıcı@mail"
+                  placeholder="Mailiniz"
                   value={comment.email}
                   onChange={(e) =>
                     setComment((curr) => ({
@@ -69,7 +69,7 @@ function Comment({ bookId }: { bookId: number }) {
                   name="comment"
                   id="comment"
                   className="block min-w-120 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
-                  placeholder="kullanıcı@mail"
+                  placeholder="Yorumunuz"
                   value={comment.comment}
                   onChange={(e) =>
                     setComment((curr) => ({

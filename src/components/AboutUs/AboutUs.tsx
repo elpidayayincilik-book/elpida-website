@@ -22,7 +22,7 @@ function AboutUs() {
             <div className="md:px-8 px-4 py-3  w-full flex flex-col justify-start text-center ">
               <div className=" w-full flex flex-col gap-4 text-left ">
                 <p className=" bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent w-full font-bold  text-lg  lg:text-4xl ">
-                  Elpida Yayıncılık genç ve bağımsız
+                  Elpida Yayıncılık 
                 </p>
                 <p className="w-6/8 lg:w-5/8  text-black font-100 text-normal text-sm lg:text-2xl ">
                   Elpida Yayıncılık, yayıncılığı yalnızca bir meslek değil, bir
