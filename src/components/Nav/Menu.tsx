@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import NavbarButtons from "./NavbarButtons";
 import { usePathname } from "next/navigation";
 import { useClickOutside } from "@/hooks/useClickOutside";
+import SocialMedia from "../Socials/SocialMedia";
 
 function Menu() {
   const path = usePathname();
@@ -13,8 +14,12 @@ function Menu() {
     setOpen(false);
   }, [path]);
   return (
-    <div className="justify-end items-center block md:hidden min-w-fit">
-      <a onClick={() => setOpen(true)} className="cursor-pointer justify-end">
+    <div className="justify-end items-center  min-w-fit flex flex-row gap-3">
+      <SocialMedia />
+      <a
+        onClick={() => setOpen(true)}
+        className="block md:hidden cursor-pointer justify-end"
+      >
         {!open && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +34,6 @@ function Menu() {
           </svg>
         )}
       </a>
-
       {open && (
         <div
           ref={refMenu}

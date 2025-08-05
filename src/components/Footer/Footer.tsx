@@ -1,7 +1,5 @@
-import iconI from "@/assets/facebook.png";
-import iconInsta from "@/assets/icon-insta.png";
-import Image from "next/image";
 import Link from "next/link";
+import SocialMedia from "../Socials/SocialMedia";
 
 function Footer() {
   return (
@@ -47,32 +45,7 @@ function Footer() {
             <h2 className="mb-6 text-sm font-semibold text-gray-900  dark:text-white">
               SOSYAL MEDYA
             </h2>
-            <ul className=" flex text-gray-500 dark:text-gray-400 font-medium gap-2 items-center">
-              <Link
-                href="https://www.facebook.com/people/Elpida-Yay%C4%B1nc%C4%B1l%C4%B1k/61557516820611/"
-                className="relative w-[24] h-[24]   p-0"
-              >
-                <Image
-                  alt="Elpida Yayıncılık Facebook Hesabı"
-                  src={iconI}
-                  fill
-                  sizes="100%"
-                  className=" opacity-90 hover:opacity-100"
-                />
-              </Link>
-              <Link
-                href={"https://www.instagram.com/elpida_yayinlari/"}
-                className="relative w-[32] h-[32]   p-0"
-              >
-                <Image
-                  alt="Elpida Yayıncılık Instagram Hesabı"
-                  src={iconInsta}
-                  width={32}
-                  sizes="100%"
-                  className="opacity-90 hover:opacity-100"
-                />
-              </Link>
-            </ul>
+            <SocialMedia />
           </div>
         </div>
         <div className="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
