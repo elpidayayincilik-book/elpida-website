@@ -27,7 +27,6 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
     `
   )) as { data: IBookWithAuthor[] | null };
 
-  console.log("data booksss", data);
 
   if (data && data.length) {
     const dataToReturn: IBookWithAuthor[] = data.map((book) => ({
@@ -35,7 +34,6 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
       picture: supabase.storage.from("book-images").getPublicUrl(book.picture)
         .data.publicUrl,
     }));
-    console.log("dataToReturn", dataToReturn);
 
     return dataToReturn;
   } else return null;
@@ -93,7 +91,6 @@ export async function getBookBySlug({
     .eq("url_slug", slug)) as {
     data: IBookWithAuthor[] | null;
   };
-  console.log("DATA FOUND WITH SLUG", data);
 
   if (!data) {
     return null;
@@ -138,7 +135,6 @@ export const getSliders = async () => {
     .limit(5)) as {
     data: ISlider[] | null;
   };
-  console.log("sldiers", data);
 
   if (data) {
     const dataToReturn = data.map((item) => ({
@@ -157,7 +153,6 @@ export const submitContactMessage = async (
 ): Promise<boolean> => {
   try {
     await supabase.from("contact").insert(body);
-    console.log("trueee");
 
     return true;
   } catch (error) {

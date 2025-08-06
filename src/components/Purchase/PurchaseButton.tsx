@@ -7,7 +7,6 @@ function PurchaseButton({
   purchaseLink?: string;
   price: number;
 }) {
-  console.log("price", price);
 
   return (
     <Link

@@ -17,7 +17,6 @@ function Comment({ bookId }: { bookId: number }) {
       setCommentRes(false);
     }
     setCommentRes(true);
-    console.log("resDATA", data);
 
     setComment({
       comment: "",

@@ -13,7 +13,6 @@ function Contact() {
   const [contactRes, setContactRes] = useState<null | boolean>(null);
   const handleSubmit = async () => {
     const data = await submitContactMessage(contactBody);
-    console.log("data client", data);
 
     if (data) {
       setContactRes(true);

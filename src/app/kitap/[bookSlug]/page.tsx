@@ -48,7 +48,6 @@ async function BookTitle({ params }: TBookTitleProps) {
     }
   );
   const bookData: IBook = await bookRes.json();
-  console.log("bookData noww", bookData);
 
   // const bookId = getIdByUrlSlug(bookTitle)
 
