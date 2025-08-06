@@ -33,7 +33,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="light ">
       <head>
-        <link rel="icon" href="https://www.elpidakitap.com.tr/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://www.elpidakitap.com.tr/elpida-logo.jpeg"
+        />
       </head>
       <body
         className={`  antialiased w-full h-full bg-white dark:bg-black overflow-x-hidden `}
