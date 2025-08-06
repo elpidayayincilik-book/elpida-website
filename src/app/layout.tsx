@@ -35,7 +35,7 @@ export default function RootLayout({
       <head>
         <link
           rel="icon"
-          href="https://www.elpidakitap.com.tr/elpida-logo.jpeg"
+          href="https://www.elpidakitap.com.tr/google-logo.png"
         />
       </head>
       <body
