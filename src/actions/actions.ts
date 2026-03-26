@@ -1,3 +1,6 @@
+"use cache";
+export const revalidate = 60;
+
 import {
   IBookNames,
   IBookWithAuthor,

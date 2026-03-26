@@ -2,7 +2,7 @@ async function About() {
   const about = await fetch("https://www.elpidakitap.com.tr/api/getAbout", {
     cache: "default",
     next: {
-      revalidate: 100,
+      revalidate: 60,
     },
   });
 

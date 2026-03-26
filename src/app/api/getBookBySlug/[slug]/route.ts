@@ -1,3 +1,5 @@
+"use cache";
+export const revalidate = 60;
 import { IBookWithAuthor } from "@/types/types";
 import { supabase } from "@/lib/supabase/server";
 import { NextRequest } from "next/server";
@@ -23,6 +25,8 @@ export async function GET(
     publish_date,
     page_number,
     price,
+    original_price,
+    discount_price,
     purchase_link_trendyol,
     authors (
     id,

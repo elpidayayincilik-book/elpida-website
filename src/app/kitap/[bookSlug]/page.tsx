@@ -8,19 +8,17 @@ import Comment from "@/components/Comment/Comment";
 // import Markdown from "react-markdown";
 import PurchaseButton from "@/components/Purchase/PurchaseButton";
 
-export async function generateMetadata({
-  params,
-}: TBookTitleProps): Promise<Metadata> {
+export async function generateMetadata({ params }: TBookTitleProps): Promise<Metadata> {
   const { bookSlug } = await params;
-  const bookRes = await fetch(
-    `https://elpidakitap.com.tr/api/getBookBySlug/${bookSlug}`,
-    {
-      cache: "default",
-      headers: {
-        "x-secret-key": process.env.SECRET_KEY ?? "",
-      },
-    }
-  );
+  const bookRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? "https://elpidakitap.com.tr"}/api/getBookBySlug/${bookSlug}`, {
+    cache: "default",
+    next: {
+      revalidate: 60,
+    },
+    headers: {
+      "x-secret-key": process.env.SECRET_KEY ?? "",
+    },
+  });
   const bookData: IBook = await bookRes.json();
 
   return {
@@ -35,36 +33,28 @@ export async function generateMetadata({
 async function BookTitle({ params }: TBookTitleProps) {
   const { bookSlug } = await params;
   // const bookData = await getBookBySlug({ slug: bookSlug });
-  const bookRes = await fetch(
-    `https://elpidakitap.com.tr/api/getBookBySlug/${bookSlug}`,
-    {
-      cache: "default",
-      next: {
-        revalidate: 60,
-      },
-      headers: {
-        "x-secret-key": process.env.SECRET_KEY ?? "",
-      },
-    }
-  );
+  const bookRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? "https://elpidakitap.com.tr"}/api/getBookBySlug/${bookSlug}`, {
+    cache: "default",
+    next: {
+      revalidate: 60,
+    },
+    headers: {
+      "x-secret-key": process.env.SECRET_KEY ?? "",
+    },
+  });
   const bookData: IBook = await bookRes.json();
-
-  // const bookId = getIdByUrlSlug(bookTitle)
+  console.log("bookData", bookData);
 
   return (
     <div
       className="overflow-x-hidden z-[100] relative "
       style={{
         overflow: "hidden",
-      }}
-    >
+      }}>
       <div className="flex justify-center  overflow-hidden">
         <div className=" w-full overflow-hidden ">
           <div className="flex  pl-4 lg:pl-6 pt-6  justify-start text-sm  lg:px-8">
-            <Link
-              href={"/#kitaplar"}
-              className="z-[100] relative font-semibold border-r-3 px-2"
-            >
+            <Link href={"/#kitaplar"} className="z-[100] relative font-semibold border-r-3 px-2">
               Kitaplar
             </Link>
             <p className=" px-2 "> {bookData?.title} </p>
@@ -91,17 +81,11 @@ async function BookTitle({ params }: TBookTitleProps) {
                   {/* <p className="text-md font-serif font-[500] tracking-[2] rounded-3xl px-5 py-1 border-1 w-fit color-red bg-black text-white ">
                     {bookData.categories.category}
                   </p> */}
-                  <p className=" text-2xl md:text-4xl font-serif">
-                    {bookData.title}
-                  </p>
-                  <p className="text-md font-serif pb-1 border-b-1">
-                    <Link href={``}>{bookData.authors.fullname}</Link>
-                  </p>
+                  <p className=" text-2xl md:text-4xl font-serif">{bookData.title}</p>
+                  <p className="text-md font-serif pb-1 border-b-1">{bookData.authors.fullname}</p>
                 </div>
                 <div className="w-full">
-                  <p className="text-md font-serif whitespace-pre-line">
-                    {bookData.detail}
-                  </p>
+                  <p className="text-md font-serif whitespace-pre-line">{bookData.detail}</p>
                   {/* <div className="prose min-w-full  font-serif text-black font-[500]">
                     <Markdown>{bookData.detail}</Markdown>
                   </div> */}
@@ -109,11 +93,13 @@ async function BookTitle({ params }: TBookTitleProps) {
                 <div className="border-1 border-gray-500/20  rounded-lg ">
                   <PurchaseButton
                     price={bookData.price}
+                    original_price={bookData.original_price}
+                    discount_price={bookData.discount_price}
                     purchaseLink={bookData.purchase_link_trendyol}
                   />
                 </div>
 
-                <ul className="pb-8" >
+                <ul className="pb-8">
                   <p className="font-bold font-md pb-2">Künye:</p>
                   <li>
                     <span className="font-bold font-md before:content-[''] pr-1">
@@ -122,18 +108,12 @@ async function BookTitle({ params }: TBookTitleProps) {
                     {bookData.page_number}{" "}
                   </li>
                   <li>
-                    <span className="font-bold font-md before:content-[''] pr-1">
-                      ISBN:
-                    </span>
+                    <span className="font-bold font-md before:content-[''] pr-1">ISBN:</span>
                     {bookData.isbn}
                   </li>
                   <li>
-                    <span className="font-bold font-md before:content-[''] pr-1">
-                      Çıkış Tarihi
-                    </span>
-                    {new Date(bookData.publish_date).toLocaleDateString(
-                      "tr-TR"
-                    )}
+                    <span className="font-bold font-md before:content-[''] pr-1">Çıkış Tarihi</span>
+                    {new Date(bookData.publish_date).toLocaleDateString("tr-TR")}
                   </li>
                 </ul>
               </div>

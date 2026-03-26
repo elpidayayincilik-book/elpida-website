@@ -16,31 +16,7 @@ function Book(bookProps: IBook) {
         <div className="  w-fit rounded-lg  flex flex-col justify-center min-w-[160] max-w-[160] md:max-w-[200] md:w-[200] ">
           <div className="flex relative w-[100%] justify-center ">
             <div className=" h-[180] w-[100%] flex justify-center md:h-[260]  xl:h-[240]  min-h-[180] items-center  ">
-              <Image
-                className="rounded-t-lg"
-                src={bookProps.picture}
-                alt=""
-                fill
-                sizes="100%"
-              />
-
-              {/* <div className="absolute top-[4] right-[4] transition-transform duration-300 opacity-[0] group-hover:opacity-[100]  w-fit group-focus:opacity-[100] group-active:opacity-[100]  ">
-              <svg
-                width=" 32"
-                height="32"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                focusable="false"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M10 2.667a.667.667 0 0 1 0-1.333h4c.368 0 .667.298.667.666v4a.667.667 0 0 1-1.334 0V3.61L7.138 9.805a.667.667 0 1 1-.943-.943l6.195-6.195zm-6.667 2a.667.667 0 0 0-.666.667v7.333a.667.667 0 0 0 .666.667h7.334a.666.666 0 0 0 .666-.667v-4a.667.667 0 1 1 1.334 0v4a2 2 0 0 1-2 2H3.333a2 2 0 0 1-2-2V5.334a2 2 0 0 1 2-2h4a.667.667 0 1 1 0 1.333z"
-                  fill="currentcolor"
-                ></path>
-              </svg>
-            </div> */}
+              <Image className="rounded-t-lg" src={bookProps.picture} alt="" fill sizes="100%" />
             </div>
           </div>
 
@@ -49,27 +25,27 @@ function Book(bookProps: IBook) {
               data-ripple-light="true"
               data-tooltip-target="tooltip"
               data-tooltip-style="light"
-              className="group "
-            >
+              className="group ">
               <p className=" uppercase text-[14px]  md:text-md font-bold w-full overflow-hidden text-gray-900 line-clamp-1">
                 {bookProps.title}
               </p>
 
               <div
                 data-tooltip="tooltip"
-                className="absolute hidden group-active:block  group-hover:block focus-hover:block   z-50 whitespace-normal break-words rounded-lg bg-black py-1.5 px-3 font-sans text-sm font-normal text-white focus:outline-none"
-              >
+                className="absolute hidden group-active:block  group-hover:block focus-hover:block   z-50 whitespace-normal break-words rounded-lg bg-black py-1.5 px-3 font-sans text-sm font-normal text-white focus:outline-none">
                 {bookProps.title}
               </div>
             </div>
             <p className="uppercase whitespace-nowrap overflow-hidden text-ellipsis text-[12px] md:text:md font-normal text-gray-900">
-              {bookProps.authors.fullname}
+              {bookProps.authors.fullname} 
             </p>
           </div>
         </div>
       </Link>
       <PurchaseButton
         price={bookProps.price}
+        original_price={bookProps.original_price}
+        discount_price={bookProps.discount_price}
         purchaseLink={bookProps.purchase_link_trendyol}
       />
     </div>

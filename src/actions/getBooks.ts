@@ -1,4 +1,5 @@
 "use cache";
+export const revalidate = 60;
 import { IBookWithAuthor } from "@/types/types";
 import { supabase } from "../lib/supabase/server";
 export async function getBooks(): Promise<null | IBookWithAuthor[]> {
@@ -14,7 +15,9 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
     picture,
     url_slug,
     price,
-     isbn,
+    original_price,
+    discount_price,
+    isbn,
     publish_date,
     page_number,
     purchase_link_trendyol,

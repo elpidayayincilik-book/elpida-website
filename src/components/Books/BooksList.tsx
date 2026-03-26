@@ -7,6 +7,7 @@ import Title from "./Title";
 async function BooksList() {
   const books = await getBooks();
 
+
   return (
     <div className=" w-full">
       {books && <LastPublished {...books[0]} />}

@@ -1,3 +1,5 @@
+"use cache";
+export const revalidate = 60;
 import { supabase } from "../../../lib/supabase/server";
 export async function GET() {
   try {
