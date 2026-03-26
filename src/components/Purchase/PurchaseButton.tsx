@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 function PurchaseButton({
-  purchaseLink = "/iletisim",
+  purchaseLink,
   price,
   original_price,
   discount_price,

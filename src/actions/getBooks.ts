@@ -60,6 +60,7 @@ export async function getBookBySlug({ slug }: { slug: string }): Promise<null | 
   discount_price,
   publish_date,
   page_number,
+  purchase_link_trendyol,
   isbn,
   authors (
   id,
