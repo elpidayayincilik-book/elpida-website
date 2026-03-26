@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getBooks } from "@/actions/getBooks";
 import Book from "./Book";
 import LastPublished from "../LastPublished/LastPublished";
@@ -6,7 +7,6 @@ import Title from "./Title";
 
 async function BooksList() {
   const books = await getBooks();
-
 
   return (
     <div className=" w-full">
