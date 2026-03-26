@@ -1,4 +1,3 @@
-"use cache";
 import { IBookWithAuthor } from "@/types/types";
 import { supabase } from "../lib/supabase/server";
 export async function getBooks(): Promise<null | IBookWithAuthor[]> {
