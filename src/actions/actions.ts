@@ -1,5 +1,4 @@
 "use cache";
-export const revalidate = 60;
 
 import {
   IBookNames,
@@ -27,15 +26,13 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
     categories (
     category
     )
-    `
+    `,
   )) as { data: IBookWithAuthor[] | null };
-
 
   if (data && data.length) {
     const dataToReturn: IBookWithAuthor[] = data.map((book) => ({
       ...book,
-      picture: supabase.storage.from("book-images").getPublicUrl(book.picture)
-        .data.publicUrl,
+      picture: supabase.storage.from("book-images").getPublicUrl(book.picture).data.publicUrl,
     }));
 
     return dataToReturn;
@@ -52,25 +49,20 @@ export async function getBooksNames(): Promise<null | IBookNames[]> {
     id,
     fullname
     )
-    `
+    `,
   )) as { data: IBookNames[] | null };
 
   if (data && data.length) {
     const dataToReturn: IBookNames[] = data.map((book) => ({
       ...book,
-      picture: supabase.storage.from("book-images").getPublicUrl(book.picture)
-        .data.publicUrl,
+      picture: supabase.storage.from("book-images").getPublicUrl(book.picture).data.publicUrl,
     }));
 
     return dataToReturn;
   } else return null;
 }
 
-export async function getBookBySlug({
-  slug,
-}: {
-  slug: string;
-}): Promise<null | IBookWithAuthor> {
+export async function getBookBySlug({ slug }: { slug: string }): Promise<null | IBookWithAuthor> {
   const { data } = (await supabase
     .from("books")
     .select(
@@ -89,7 +81,7 @@ export async function getBookBySlug({
   categories (
   category
   )
-  `
+  `,
     )
     .eq("url_slug", slug)) as {
     data: IBookWithAuthor[] | null;
@@ -101,17 +93,14 @@ export async function getBookBySlug({
     const dataToReturn: IBookWithAuthor = data[0];
     const dataWithImageUrl = {
       ...dataToReturn,
-      picture: supabase.storage
-        .from("book-images")
-        .getPublicUrl(dataToReturn.picture).data.publicUrl,
+      picture: supabase.storage.from("book-images").getPublicUrl(dataToReturn.picture).data
+        .publicUrl,
     };
     return dataWithImageUrl;
   }
 }
 
-export const submitComment = async (
-  commentBody: ICommentSubmit
-): Promise<boolean> => {
+export const submitComment = async (commentBody: ICommentSubmit): Promise<boolean> => {
   try {
     const { bookId, comment, email } = commentBody;
 
@@ -142,18 +131,14 @@ export const getSliders = async () => {
   if (data) {
     const dataToReturn = data.map((item) => ({
       ...item,
-      image_url: supabase.storage
-        .from("intro-slider")
-        .getPublicUrl(item.image_url).data.publicUrl,
+      image_url: supabase.storage.from("intro-slider").getPublicUrl(item.image_url).data.publicUrl,
     }));
     return dataToReturn;
   }
   return null;
 };
 
-export const submitContactMessage = async (
-  body: IContact
-): Promise<boolean> => {
+export const submitContactMessage = async (body: IContact): Promise<boolean> => {
   try {
     await supabase.from("contact").insert(body);
 
@@ -173,9 +158,8 @@ export const getPublishPackages = async () => {
     if (data) {
       const dataToReturn = data.map((item) => ({
         ...item,
-        picture: supabase.storage
-          .from("publish-packages-images")
-          .getPublicUrl(item.picture).data.publicUrl,
+        picture: supabase.storage.from("publish-packages-images").getPublicUrl(item.picture).data
+          .publicUrl,
       }));
       return dataToReturn;
     }
