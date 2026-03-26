@@ -3,12 +3,13 @@ import type { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const books = await getBooks();
-  const booksMap: MetadataRoute.Sitemap = books!.map((item) => ({
-    url: `https://www.elpidakitap.com.tr/kitap/${item.url_slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 1,
-  }));
+  const booksMap: MetadataRoute.Sitemap =
+    books?.map((item) => ({
+      url: `https://www.elpidakitap.com.tr/kitap/${item.url_slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
+    })) ?? [];
   return [
     {
       url: "https://www.elpidakitap.com.tr",
