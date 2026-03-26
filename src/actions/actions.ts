@@ -168,3 +168,13 @@ export const getPublishPackages = async () => {
     return null;
   }
 };
+export const getAbout = async () => {
+  try {
+    const { data } = await supabase.from("about").select();
+
+    return data![0].about;
+  } catch (error) {
+    console.log("ERROR: from getAbout/actions.ts", error);
+    return null;
+  }
+};

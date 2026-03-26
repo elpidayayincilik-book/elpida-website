@@ -1,12 +1,7 @@
-async function About() {
-  const about = await fetch("https://www.elpidakitap.com.tr/api/getAbout", {
-    cache: "default",
-    next: {
-      revalidate: 60,
-    },
-  });
+import { getAbout } from "@/actions/actions";
 
-  const data = await about.json();
+async function About() {
+  const data = await getAbout();
 
   return (
     <div className=" w-full  flex justify-center flex-col items-center p-4">
@@ -15,4 +10,5 @@ async function About() {
     </div>
   );
 }
+export const revalidate = 60;
 export default About;

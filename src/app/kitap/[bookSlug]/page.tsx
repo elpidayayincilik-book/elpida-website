@@ -1,6 +1,6 @@
-// import { getBookBySlug } from "@/actions/getBooks";
+import { getBookBySlug } from "@/actions/getBooks";
 import type { Metadata } from "next";
-import type { IBook, TBookTitleProps } from "@/types/types";
+import type { TBookTitleProps } from "@/types/types";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -10,16 +10,13 @@ import PurchaseButton from "@/components/Purchase/PurchaseButton";
 
 export async function generateMetadata({ params }: TBookTitleProps): Promise<Metadata> {
   const { bookSlug } = await params;
-  const bookRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? "https://elpidakitap.com.tr"}/api/getBookBySlug/${bookSlug}`, {
-    cache: "default",
-    next: {
-      revalidate: 60,
-    },
-    headers: {
-      "x-secret-key": process.env.SECRET_KEY ?? "",
-    },
-  });
-  const bookData: IBook = await bookRes.json();
+  const bookData = await getBookBySlug({ slug: bookSlug });
+
+  if (!bookData) {
+    return {
+      title: "Kitap Bulunamadı",
+    };
+  }
 
   return {
     title: {
@@ -32,18 +29,7 @@ export async function generateMetadata({ params }: TBookTitleProps): Promise<Met
 
 async function BookTitle({ params }: TBookTitleProps) {
   const { bookSlug } = await params;
-  // const bookData = await getBookBySlug({ slug: bookSlug });
-  const bookRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? "https://elpidakitap.com.tr"}/api/getBookBySlug/${bookSlug}`, {
-    cache: "default",
-    next: {
-      revalidate: 60,
-    },
-    headers: {
-      "x-secret-key": process.env.SECRET_KEY ?? "",
-    },
-  });
-  const bookData: IBook = await bookRes.json();
-  console.log("bookData", bookData);
+  const bookData = await getBookBySlug({ slug: bookSlug });
 
   return (
     <div
@@ -125,4 +111,5 @@ async function BookTitle({ params }: TBookTitleProps) {
     </div>
   );
 }
+export const revalidate = 60;
 export default BookTitle;
