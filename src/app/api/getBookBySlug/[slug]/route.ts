@@ -1,5 +1,4 @@
 "use cache";
-export const revalidate = 60;
 import { IBookWithAuthor } from "@/types/types";
 import { supabase } from "@/lib/supabase/server";
 import { NextRequest } from "next/server";
