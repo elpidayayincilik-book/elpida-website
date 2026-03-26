@@ -37,7 +37,7 @@ function Book(bookProps: IBook) {
               </div>
             </div>
             <p className="uppercase whitespace-nowrap overflow-hidden text-ellipsis text-[12px] md:text:md font-normal text-gray-900">
-              {bookProps.authors.fullname} 
+              {bookProps.authors.fullname}
             </p>
           </div>
         </div>

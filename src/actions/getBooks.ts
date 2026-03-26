@@ -58,6 +58,9 @@ export async function getBookBySlug({ slug }: { slug: string }): Promise<null | 
   price,
   original_price,
   discount_price,
+  publish_date,
+  page_number,
+  isbn,
   authors (
   id,
   fullname
