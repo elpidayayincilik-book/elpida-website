@@ -10,7 +10,7 @@ async function BooksList() {
 
   return (
     <div className=" w-full">
-      {books && <LastPublished {...books[0]} />}
+      {books && <LastPublished books={books.slice(0, 7)} />}
 
       <div className=" w-full flex-flex-col  items-center  ">
         <div className=" flex flex-col justify-center items-center ">
