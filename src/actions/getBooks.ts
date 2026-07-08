@@ -28,7 +28,7 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
     )
     `,
     )
-    .order("publish_date", { ascending: false })) as {
+    .order("created_at", { ascending: false })) as {
     data: IBookWithAuthor[] | null;
   };
 
