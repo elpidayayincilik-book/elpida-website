@@ -1,4 +1,3 @@
-
 import {
   IBookNames,
   IBookWithAuthor,
@@ -8,6 +7,7 @@ import {
   ISlider,
 } from "@/types/types";
 import { supabase } from "../lib/supabase/server";
+
 export async function getBooks(): Promise<null | IBookWithAuthor[]> {
   const { data } = (await supabase.from("books").select(
     `id,
@@ -31,7 +31,9 @@ export async function getBooks(): Promise<null | IBookWithAuthor[]> {
   if (data && data.length) {
     const dataToReturn: IBookWithAuthor[] = data.map((book) => ({
       ...book,
-      picture: supabase.storage.from("book-images").getPublicUrl(book.picture).data.publicUrl,
+      picture: supabase.storage
+        .from("book-images")
+        .getPublicUrl(book.picture).data.publicUrl,
     }));
 
     return dataToReturn;
@@ -54,14 +56,20 @@ export async function getBooksNames(): Promise<null | IBookNames[]> {
   if (data && data.length) {
     const dataToReturn: IBookNames[] = data.map((book) => ({
       ...book,
-      picture: supabase.storage.from("book-images").getPublicUrl(book.picture).data.publicUrl,
+      picture: supabase.storage
+        .from("book-images")
+        .getPublicUrl(book.picture).data.publicUrl,
     }));
 
     return dataToReturn;
   } else return null;
 }
 
-export async function getBookBySlug({ slug }: { slug: string }): Promise<null | IBookWithAuthor> {
+export async function getBookBySlug({
+  slug,
+}: {
+  slug: string;
+}): Promise<null | IBookWithAuthor> {
   const { data } = (await supabase
     .from("books")
     .select(
@@ -90,27 +98,34 @@ export async function getBookBySlug({ slug }: { slug: string }): Promise<null | 
     return null;
   } else {
     const dataToReturn: IBookWithAuthor = data[0];
+
     const dataWithImageUrl = {
       ...dataToReturn,
-      picture: supabase.storage.from("book-images").getPublicUrl(dataToReturn.picture).data
-        .publicUrl,
+      picture: supabase.storage
+        .from("book-images")
+        .getPublicUrl(dataToReturn.picture).data.publicUrl,
     };
+
     return dataWithImageUrl;
   }
 }
 
-export const submitComment = async (commentBody: ICommentSubmit): Promise<boolean> => {
+export const submitComment = async (
+  commentBody: ICommentSubmit,
+): Promise<boolean> => {
   try {
     const { bookId, comment, email } = commentBody;
 
     if (!bookId) {
       return false;
     }
+
     await supabase.from("comments").insert({
       comment,
       email,
       bookId,
     });
+
     return true;
   } catch (error) {
     console.log("ERROR. ACTION. SUBMIT_COMMENT", error);
@@ -130,14 +145,20 @@ export const getSliders = async () => {
   if (data) {
     const dataToReturn = data.map((item) => ({
       ...item,
-      image_url: supabase.storage.from("intro-slider").getPublicUrl(item.image_url).data.publicUrl,
+      image_url: supabase.storage
+        .from("intro-slider")
+        .getPublicUrl(item.image_url).data.publicUrl,
     }));
+
     return dataToReturn;
   }
+
   return null;
 };
 
-export const submitContactMessage = async (body: IContact): Promise<boolean> => {
+export const submitContactMessage = async (
+  body: IContact,
+): Promise<boolean> => {
   try {
     await supabase.from("contact").insert(body);
 
@@ -148,25 +169,32 @@ export const submitContactMessage = async (body: IContact): Promise<boolean> => 
   }
 };
 
-export const getPublishPackages = async () => {
+export const getPublishPackages = async (): Promise<IPublishPackage[]> => {
   try {
-    const { data } = (await supabase.from("publish_packages").select()) as {
+    const { data } = (await supabase
+      .from("publish_packages")
+      .select()) as {
       data: IPublishPackage[] | null;
     };
 
-    if (data) {
-      const dataToReturn = data.map((item) => ({
-        ...item,
-        picture: supabase.storage.from("publish-packages-images").getPublicUrl(item.picture).data
-          .publicUrl,
-      }));
-      return dataToReturn;
+    if (!data || data.length === 0) {
+      return [];
     }
+
+    const dataToReturn: IPublishPackage[] = data.map((item) => ({
+      ...item,
+      picture: supabase.storage
+        .from("publish-packages-images")
+        .getPublicUrl(item.picture).data.publicUrl,
+    }));
+
+    return dataToReturn;
   } catch (error) {
-    console.log(error);
-    return null;
+    console.log("ERROR: from getPublishPackages/actions.ts", error);
+    return [];
   }
 };
+
 export const getAbout = async () => {
   try {
     const { data } = await supabase.from("about").select();
