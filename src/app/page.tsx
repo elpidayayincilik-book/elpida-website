@@ -5,7 +5,7 @@ import BooksList from "@/components/Books/BooksList";
 import "./globals.css";
 import IntroSlider from "@/components/Slider/IntroSlider";
 import ScrollToHash from "@/utils/ScrollToHash";
-
+export const dynamic = "force-dynamic";
 export default async function Home() {
   return (
     <div className="z-[16] bg-white flex flex-col justify-center items-center">
